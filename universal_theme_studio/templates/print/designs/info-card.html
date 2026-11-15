@@ -1,0 +1,15 @@
+{% import "parts.html" as p with context %}
+{{ p.hd_split() }}
+<table class="panel"><tr>
+	<td class="pl">{{ p.party_plain() }}</td>
+	<td class="pr"><div class="icard">
+		<div class="ic-h"><span>{{ p.L(ctx.title) }}</span><b class="num">{{ ctx.number }}</b></div>
+		<table class="meta">{% for m in ctx.meta %}<tr><td class="k">{{ p.L(m.label) }}</td><td class="v">{{ m.value }}</td></tr>{% endfor %}</table>
+		{% if ctx.status %}<div class="ic-st">{{ p.LT(ctx.status) }}</div>{% endif %}
+	</div></td>
+</tr></table>
+{{ p.items() }}
+{{ p.bottom() }}
+{{ p.payments() }}
+{{ p.sig(False) }}
+{{ p.footer() }}

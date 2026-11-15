@@ -1,0 +1,696 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-12 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sb_general",
+  "default_theme",
+  "default_mode",
+  "allow_user_switching",
+  "cb_general",
+  "font_family",
+  "font_scale",
+  "table_density",
+  "corner_style",
+  "sb_colors",
+  "primary_color",
+  "cb_colors",
+  "accent_color",
+  "secondary_color",
+  "sb_mixed",
+  "gradient_direction",
+  "sidebar_gradient",
+  "cb_mixed",
+  "glass_transparency",
+  "sb_workspace",
+  "workspace_background",
+  "cb_ws",
+  "workspace_overlay",
+  "sb_desktop",
+  "desktop_wallpaper_enabled",
+  "desktop_wallpaper_preset",
+  "allow_user_wallpaper",
+  "desktop_glass_cards",
+  "desktop_glass_opacity",
+  "cb_desktop1",
+  "desktop_wallpaper_fit",
+  "desktop_wallpaper_position",
+  "desktop_overlay",
+  "desktop_blur",
+  "sb_desktop_custom",
+  "desktop_wallpaper_all",
+  "cb_desktop2",
+  "wp_fiori_blue",
+  "wp_redwood_purple",
+  "wp_emerald_modern",
+  "cb_desktop3",
+  "wp_midnight_pro",
+  "wp_sandstone_premium",
+  "cb_desktop4",
+  "wp_ocean_breeze",
+  "wp_sunset_fusion",
+  "wp_forest_harmony",
+  "wp_royal_indigo",
+  "wp_modern_teal",
+  "wp_carbon_pro",
+  "sb_welcome",
+  "desktop_show_welcome",
+  "desktop_show_clock",
+  "cb_welcome",
+  "desktop_show_calendar",
+  "desktop_clock_format",
+  "sb_personal",
+  "default_theme_fallback",
+  "allow_user_fonts",
+  "cb_personal",
+  "org_font_heading",
+  "org_font_table",
+  "org_font_form",
+  "sb_available",
+  "available_themes",
+  "sb_sidebar",
+  "sidebar_options",
+  "sb_login",
+  "login_logo",
+  "login_background_image",
+  "login_background_color",
+  "login_title",
+  "login_subtitle",
+  "cb_login",
+  "login_layout",
+  "login_overlay",
+  "login_card_color",
+  "login_button_color",
+  "sb_login_designer",
+  "login_design",
+  "login_follow_user_theme",
+  "login_default_language",
+  "login_card_position",
+  "login_card_radius",
+  "login_glass",
+  "login_show_features",
+  "cb_login_designer",
+  "login_title_ar",
+  "login_subtitle_ar",
+  "login_features",
+  "sb_login_preview",
+  "login_preview",
+  "sb_adv",
+  "custom_css"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb_general",
+   "label": "General",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "default_theme",
+   "label": "Default Theme",
+   "fieldtype": "Select",
+   "options": "Fiori Blue\nRedwood Purple\nEmerald Modern\nMidnight Pro\nSandstone Premium\nOcean Breeze\nSunset Fusion\nForest Harmony\nRoyal Indigo\nModern Teal\nCarbon Pro",
+   "default": "Fiori Blue",
+   "description": "Applied to users who have not chosen their own theme."
+  },
+  {
+   "fieldname": "default_mode",
+   "label": "Default Mode",
+   "fieldtype": "Select",
+   "options": "Light\nDark\nAutomatic",
+   "default": "Light"
+  },
+  {
+   "fieldname": "allow_user_switching",
+   "label": "Allow Users to Switch Themes",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "cb_general",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "font_family",
+   "label": "Font",
+   "fieldtype": "Select",
+   "options": "Theme Default\nTajawal\nCairo\nIBM Plex Sans Arabic\nAlexandria\nReadex Pro\nAlmarai\nNoto Sans Arabic\nRubik\nSystem",
+   "default": "Theme Default",
+   "description": "Organization default interface & navigation font (users may override it if allowed)."
+  },
+  {
+   "fieldname": "font_scale",
+   "label": "Text Size",
+   "fieldtype": "Select",
+   "options": "Small\nMedium\nLarge",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "table_density",
+   "label": "Table Density",
+   "fieldtype": "Select",
+   "options": "Compact\nComfortable\nSpacious",
+   "default": "Comfortable"
+  },
+  {
+   "fieldname": "corner_style",
+   "label": "Corner Style",
+   "fieldtype": "Select",
+   "options": "Sharp\nRounded\nSoft",
+   "default": "Rounded"
+  },
+  {
+   "fieldname": "sb_colors",
+   "label": "Colors",
+   "fieldtype": "Section Break",
+   "description": "Leave empty to use the colors of the selected theme."
+  },
+  {
+   "fieldname": "primary_color",
+   "label": "Primary Color",
+   "fieldtype": "Color"
+  },
+  {
+   "fieldname": "cb_colors",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "accent_color",
+   "label": "Accent Color",
+   "fieldtype": "Color"
+  },
+  {
+   "fieldname": "secondary_color",
+   "label": "Secondary Color",
+   "fieldtype": "Color"
+  },
+  {
+   "fieldname": "sb_mixed",
+   "label": "Gradients & Glass",
+   "fieldtype": "Section Break",
+   "description": "Applies to every theme. Leave defaults to keep each theme's own look."
+  },
+  {
+   "fieldname": "gradient_direction",
+   "label": "Gradient Direction",
+   "fieldtype": "Select",
+   "options": "Theme Default\nTo Right\nTo Bottom\nTo Bottom Right\nTo Top Right\nTo Bottom Left",
+   "default": "Theme Default",
+   "description": "Direction of theme gradients (login, wallpaper fallback, sidebar)."
+  },
+  {
+   "fieldname": "sidebar_gradient",
+   "label": "Sidebar Gradient",
+   "fieldtype": "Select",
+   "options": "Theme Default\nPrimary to Secondary\nPrimary to Accent\nSecondary to Accent",
+   "default": "Theme Default",
+   "description": "Used when a theme's sidebar appearance is Gradient."
+  },
+  {
+   "fieldname": "cb_mixed",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "glass_transparency",
+   "label": "Glass Transparency (%)",
+   "fieldtype": "Percent",
+   "default": "50",
+   "description": "50 = built-in look. Lower = clearer glass, higher = more solid (sidebar glass, clock card). Icon cards keep their own Glass Opacity."
+  },
+  {
+   "fieldname": "sb_workspace",
+   "label": "Workspace Background",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "workspace_background",
+   "label": "Background Image",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "cb_ws",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "workspace_overlay",
+   "label": "Image Overlay Strength (%)",
+   "fieldtype": "Percent",
+   "default": "85",
+   "description": "Higher values keep text easier to read over the image."
+  },
+  {
+   "fieldname": "sb_desktop",
+   "label": "Desktop Wallpaper (/desk)",
+   "fieldtype": "Section Break",
+   "description": "Photographic wallpaper behind the application icons. Each theme has its own default photo."
+  },
+  {
+   "fieldname": "desktop_wallpaper_enabled",
+   "label": "Show Wallpaper",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "desktop_wallpaper_preset",
+   "label": "Wallpaper Preset",
+   "fieldtype": "Select",
+   "options": "Theme Default\nMint Soft\nRose Elegant\nSky Glass\nAmber Light\nSlate Modern\nArctic White",
+   "default": "Theme Default",
+   "description": "Optional abstract wallpaper used instead of each theme's photo (an uploaded custom wallpaper still wins)."
+  },
+  {
+   "fieldname": "allow_user_wallpaper",
+   "label": "Allow Users to Choose Wallpaper",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "desktop_glass_cards",
+   "label": "Glass Effect on Icons",
+   "fieldtype": "Check",
+   "default": "1",
+   "description": "Translucent frosted cards behind icons for readability."
+  },
+  {
+   "fieldname": "desktop_glass_opacity",
+   "label": "Glass Opacity (%)",
+   "fieldtype": "Percent",
+   "default": "35",
+   "depends_on": "desktop_glass_cards"
+  },
+  {
+   "fieldname": "cb_desktop1",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "desktop_wallpaper_fit",
+   "label": "Fit",
+   "fieldtype": "Select",
+   "options": "Cover\nContain",
+   "default": "Cover"
+  },
+  {
+   "fieldname": "desktop_wallpaper_position",
+   "label": "Position",
+   "fieldtype": "Select",
+   "options": "Center\nTop\nBottom\nLeft\nRight\nTop Left\nTop Right\nBottom Left\nBottom Right",
+   "default": "Center",
+   "description": "Physical position; photos are not mirrored in RTL."
+  },
+  {
+   "fieldname": "desktop_overlay",
+   "label": "Overlay Opacity (%)",
+   "fieldtype": "Percent",
+   "default": "25"
+  },
+  {
+   "fieldname": "desktop_blur",
+   "label": "Blur (px)",
+   "fieldtype": "Int",
+   "default": "0",
+   "description": "0 to 30"
+  },
+  {
+   "fieldname": "sb_desktop_custom",
+   "label": "Custom Wallpapers",
+   "fieldtype": "Section Break",
+   "collapsible": 1,
+   "description": "Uploads override the default photo. Leave empty to keep the built-in photos. Recommended: 2560x1440 JPG/WebP under 1 MB."
+  },
+  {
+   "fieldname": "desktop_wallpaper_all",
+   "label": "Wallpaper for All Themes",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "cb_desktop2",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "wp_fiori_blue",
+   "label": "Fiori Blue",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "wp_redwood_purple",
+   "label": "Redwood Purple",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "wp_emerald_modern",
+   "label": "Emerald Modern",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "cb_desktop3",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "wp_midnight_pro",
+   "label": "Midnight Pro",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "wp_sandstone_premium",
+   "label": "Sandstone Premium",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "cb_desktop4",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "wp_ocean_breeze",
+   "label": "Ocean Breeze",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "wp_sunset_fusion",
+   "label": "Sunset Fusion",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "wp_forest_harmony",
+   "label": "Forest Harmony",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "wp_royal_indigo",
+   "label": "Royal Indigo",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "wp_modern_teal",
+   "label": "Modern Teal",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "wp_carbon_pro",
+   "label": "Carbon Pro",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "sb_welcome",
+   "label": "Desktop Welcome & Clock (/desk)",
+   "fieldtype": "Section Break",
+   "description": "Greeting, live clock and Gregorian + Hijri calendar above the application icons."
+  },
+  {
+   "fieldname": "desktop_show_welcome",
+   "label": "Show Welcome Message",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "desktop_show_clock",
+   "label": "Show Clock",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "cb_welcome",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "desktop_show_calendar",
+   "label": "Show Calendar (Gregorian + Hijri)",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "desktop_clock_format",
+   "label": "Time Format",
+   "fieldtype": "Select",
+   "options": "12-hour\n24-hour",
+   "default": "12-hour"
+  },
+  {
+   "fieldname": "sb_personal",
+   "label": "User Personalization",
+   "fieldtype": "Section Break",
+   "description": "What each user may change, and the organization defaults they are reset to."
+  },
+  {
+   "fieldname": "default_theme_fallback",
+   "label": "Default Theme Fallback",
+   "fieldtype": "Select",
+   "options": "Fiori Blue\nRedwood Purple\nEmerald Modern\nMidnight Pro\nSandstone Premium\nOcean Breeze\nSunset Fusion\nForest Harmony\nRoyal Indigo\nModern Teal\nCarbon Pro",
+   "default": "Fiori Blue",
+   "description": "Used when the organization default or a user's saved theme is not available."
+  },
+  {
+   "fieldname": "allow_user_fonts",
+   "label": "Allow Users to Customize Fonts",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "cb_personal",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "org_font_heading",
+   "label": "Default Heading Font",
+   "fieldtype": "Select",
+   "options": "Same as Interface\nTajawal\nCairo\nIBM Plex Sans Arabic\nAlexandria\nReadex Pro\nAlmarai\nNoto Sans Arabic\nRubik\nSystem",
+   "default": "Same as Interface"
+  },
+  {
+   "fieldname": "org_font_table",
+   "label": "Default Table Font",
+   "fieldtype": "Select",
+   "options": "Same as Interface\nTajawal\nCairo\nIBM Plex Sans Arabic\nAlexandria\nReadex Pro\nAlmarai\nNoto Sans Arabic\nRubik\nSystem",
+   "default": "Same as Interface"
+  },
+  {
+   "fieldname": "org_font_form",
+   "label": "Default Form Font",
+   "fieldtype": "Select",
+   "options": "Same as Interface\nTajawal\nCairo\nIBM Plex Sans Arabic\nAlexandria\nReadex Pro\nAlmarai\nNoto Sans Arabic\nRubik\nSystem",
+   "default": "Same as Interface"
+  },
+  {
+   "fieldname": "sb_available",
+   "label": "Themes Available to Users",
+   "fieldtype": "Section Break",
+   "description": "Leave empty to offer all 11 themes. System Managers can always use every theme."
+  },
+  {
+   "fieldname": "available_themes",
+   "label": "Available Themes",
+   "fieldtype": "Table",
+   "options": "Theme Studio Available Theme"
+  },
+  {
+   "fieldname": "sb_sidebar",
+   "label": "Sidebar",
+   "fieldtype": "Section Break",
+   "description": "Each theme keeps its own sidebar style. Edit the row of the theme you want to change."
+  },
+  {
+   "fieldname": "sidebar_options",
+   "label": "Sidebar Options per Theme",
+   "fieldtype": "Table",
+   "options": "Theme Sidebar Option"
+  },
+  {
+   "fieldname": "sb_login",
+   "label": "Login Page",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "login_logo",
+   "label": "Logo",
+   "fieldtype": "Attach Image",
+   "description": "Falls back to the app logo from Website Settings."
+  },
+  {
+   "fieldname": "login_background_image",
+   "label": "Background Image",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "login_background_color",
+   "label": "Background Color",
+   "fieldtype": "Color"
+  },
+  {
+   "fieldname": "login_title",
+   "label": "Title",
+   "fieldtype": "Data",
+   "description": "Headline of the login designs (Classic design: the card title). Arabic version below."
+  },
+  {
+   "fieldname": "login_subtitle",
+   "label": "Subtitle",
+   "fieldtype": "Small Text",
+   "description": "Sub-headline (English). Arabic version below."
+  },
+  {
+   "fieldname": "cb_login",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "login_layout",
+   "label": "Layout",
+   "fieldtype": "Select",
+   "options": "Centered\nSplit Left\nSplit Right",
+   "default": "Centered"
+  },
+  {
+   "fieldname": "login_overlay",
+   "label": "Background Overlay (%)",
+   "fieldtype": "Percent",
+   "default": "35"
+  },
+  {
+   "fieldname": "login_card_color",
+   "label": "Card Color",
+   "fieldtype": "Color"
+  },
+  {
+   "fieldname": "login_button_color",
+   "label": "Button Color",
+   "fieldtype": "Color"
+  },
+  {
+   "fieldname": "sb_login_designer",
+   "label": "Login Designer",
+   "fieldtype": "Section Break",
+   "description": "Choose and tune the login page. 'Native Frappe Login' (or adding ?native=1 to the URL) always gives the untouched Frappe page."
+  },
+  {
+   "fieldname": "login_design",
+   "label": "Login Design",
+   "fieldtype": "Select",
+   "options": "Match Organization Theme\nFiori Blue\nRedwood Purple\nEmerald Modern\nMidnight Pro\nSandstone Premium\nOcean Breeze\nSunset Fusion\nForest Harmony\nRoyal Indigo\nModern Teal\nCarbon Pro\nClassic (Theme Login)\nNative Frappe Login",
+   "default": "Match Organization Theme",
+   "description": "Keep 'Match Organization Theme' so the login page always looks like the selected theme. Pick a specific design only if you want the login page to stay fixed whatever the theme."
+  },
+  {
+   "fieldname": "login_follow_user_theme",
+   "label": "Login Follows Last Theme Used in This Browser",
+   "fieldtype": "Check",
+   "default": "1",
+   "description": "With 'Match Organization Theme': a browser that has signed in before sees the login page of the theme that user chose; new browsers see the organization theme. Only the theme name is remembered (cookie)."
+  },
+  {
+   "fieldname": "login_default_language",
+   "label": "Login Page Language",
+   "fieldtype": "Select",
+   "options": "Arabic\nEnglish\nBrowser Default",
+   "default": "Arabic",
+   "description": "Language shown to visitors who have not chosen one yet. The language switcher on the page overrides it."
+  },
+  {
+   "fieldname": "login_card_position",
+   "label": "Login Card Position",
+   "fieldtype": "Select",
+   "options": "Design Default\nStart\nCenter\nEnd",
+   "default": "Design Default",
+   "description": "Start/End follow the reading direction (Arabic mirrors)."
+  },
+  {
+   "fieldname": "login_card_radius",
+   "label": "Login Card Corners",
+   "fieldtype": "Select",
+   "options": "Theme Default\nSharp\nRounded\nSoft\nExtra Soft",
+   "default": "Theme Default"
+  },
+  {
+   "fieldname": "login_glass",
+   "label": "Glass Transparency (%)",
+   "fieldtype": "Percent",
+   "default": "50",
+   "description": "50 = design default; lower = clearer glass, higher = more solid."
+  },
+  {
+   "fieldname": "login_show_features",
+   "label": "Show Feature Cards",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "cb_login_designer",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "login_title_ar",
+   "label": "Headline (Arabic)",
+   "fieldtype": "Data",
+   "length": 140
+  },
+  {
+   "fieldname": "login_subtitle_ar",
+   "label": "Sub-headline (Arabic)",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "login_features",
+   "label": "Feature Cards",
+   "fieldtype": "Table",
+   "options": "Login Feature",
+   "description": "Up to 3 are shown. Leave empty for the default cards."
+  },
+  {
+   "fieldname": "sb_login_preview",
+   "label": "Live Preview",
+   "fieldtype": "Section Break",
+   "description": "Shows the login page with the values above, before you save."
+  },
+  {
+   "fieldname": "login_preview",
+   "label": "Preview",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "sb_adv",
+   "label": "Advanced",
+   "fieldtype": "Section Break",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "custom_css",
+   "label": "Custom CSS",
+   "fieldtype": "Code",
+   "options": "CSS",
+   "description": "Appended after the theme. Use the --uts-* variables where possible."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-13 09:30:00",
+ "modified_by": "Administrator",
+ "module": "Universal Theme Studio",
+ "name": "Theme Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

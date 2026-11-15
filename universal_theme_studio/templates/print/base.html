@@ -1,0 +1,5 @@
+{% import "parts.html" as p with context %}
+<style>{{ css }}</style>
+<div class="uts-doc d-{{ ctx.design }} {{ 'rtl' if ctx.rtl else 'ltr' }} m-{{ ctx.mode }}{{ ' ink' if ctx.cfg.ink else '' }}">
+{% include "designs/" ~ ctx.design ~ ".html" %}
+</div>

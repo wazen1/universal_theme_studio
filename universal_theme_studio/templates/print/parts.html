@@ -1,0 +1,193 @@
+{# Shared building blocks. All text is auto-escaped; HTML only arrives pre-sanitized (Markup). #}
+{% macro L(l) -%}
+{%- if l.en == l.ar -%}{{ l.en }}
+{%- elif ctx.mode == 'ar' -%}{{ l.ar }}
+{%- elif ctx.mode == 'en' -%}{{ l.en }}
+{%- else -%}<span class="b-en">{{ l.en }}</span><span class="b-ar">{{ l.ar }}</span>
+{%- endif -%}
+{%- endmacro %}
+
+{% macro LT(l) -%}
+{%- if ctx.mode == 'ar' -%}{{ l.ar }}{%- elif ctx.mode == 'en' -%}{{ l.en }}{%- else -%}{{ l.en }} / {{ l.ar }}{%- endif -%}
+{%- endmacro %}
+
+{% macro company() %}
+{% if ctx.company.logo %}<img class="logo" src="{{ ctx.company.logo }}" alt=""><br>{% endif %}
+<div class="co-name">{{ ctx.company.name }}</div>
+{% if ctx.cfg.header_text %}<div class="co-meta">{{ ctx.cfg.header_text }}</div>{% endif %}
+{% if ctx.company.address %}<div class="co-meta">{{ ctx.company.address }}</div>{% endif %}
+{% if ctx.company.lines or ctx.company.tax_id %}
+<div class="co-meta">{{ ctx.company.lines|join(' · ') }}{% if ctx.company.tax_id %}{% if ctx.company.lines %} · {% endif %}{{ LT({'en': 'Tax ID', 'ar': 'الرقم الضريبي'}) }}: <span class="num">{{ ctx.company.tax_id }}</span>{% endif %}</div>
+{% endif %}
+{% endmacro %}
+
+{% macro title() %}
+<div class="doc-title">{{ L(ctx.title) }}{% if ctx.status %} <span style="font-size:.45em;font-weight:400;opacity:.9">({{ LT(ctx.status) }})</span>{% endif %}</div>
+<div class="doc-no"><span class="num">{{ ctx.number }}</span></div>
+{% endmacro %}
+
+{% macro party_card() %}
+{% if ctx.party.label %}
+<div class="card">
+	<div class="party-l">{{ L(ctx.party.label) }}</div>
+	<div class="party-n" dir="auto">{{ ctx.party.name }}</div>
+	{% if ctx.party.address %}<div class="party-a">{{ ctx.party.address }}</div>{% endif %}
+	{% if ctx.party.contact %}<div class="party-a">{{ ctx.party.contact }}</div>{% endif %}
+	{% if ctx.party.tax_id %}<div class="party-a">{{ LT({'en': 'Tax ID', 'ar': 'الرقم الضريبي'}) }}: <span class="num">{{ ctx.party.tax_id }}</span></div>{% endif %}
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro meta_card() %}
+<div class="card">
+	<table class="meta">
+	{% for m in ctx.meta %}
+		<tr><td class="k">{{ L(m.label) }}</td><td class="v">{{ m.value }}</td></tr>
+	{% endfor %}
+	</table>
+</div>
+{% endmacro %}
+
+{% macro info(cls='') %}
+<table class="info {{ cls }}"><tr>
+{% if ctx.party.label %}
+	<td class="col">{{ party_card() }}</td>
+	<td class="col">{{ meta_card() }}</td>
+{% else %}
+	<td class="col" colspan="2">{{ meta_card() }}</td>
+{% endif %}
+</tr></table>
+{% endmacro %}
+
+{% macro items() %}
+{% for chunk in ctx.chunks %}
+<div class="chunk{{ ' brk' if not loop.first else '' }}">
+<table class="items {{ ctx.table_class }}">
+<thead><tr>
+{% for c in ctx.cols %}<th{% if c.width %} style="width:{{ c.width }}%"{% endif %} class="{{ 'c-num' if c.kind in ('num', 'num_opt') else '' }}">{{ L(c.label) }}</th>{% endfor %}
+</tr></thead>
+<tbody>
+{% for r in chunk %}
+<tr>
+{% for cell in r %}
+	{% if cell.kind == 'item' %}<td><div class="it-n">{{ cell.name }}</div>{% if cell.desc %}<div class="it-d">{{ cell.desc }}</div>{% endif %}</td>
+	{% elif cell.kind == 'num' %}<td class="c-num"><span class="num">{{ cell.v }}</span></td>
+	{% else %}<td>{{ cell.v }}</td>{% endif %}
+{% endfor %}
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endfor %}
+{% endmacro %}
+
+{% macro totals() %}
+<table class="totals">
+{% for t in ctx.totals %}
+	<tr class="{{ 'grand' if t.grand else '' }}"><td class="lb">{{ L(t.label) }}</td><td class="val c-num"><span class="num">{{ t.value }}</span></td></tr>
+{% endfor %}
+</table>
+{% endmacro %}
+
+{% macro notes() %}
+{% if ctx.in_words %}
+<div class="notes-b"><div class="notes-h">{{ LT({'en': 'Amount in words', 'ar': 'المبلغ بالحروف'}) }}</div><div class="inwords">{{ ctx.in_words }}</div></div>
+{% endif %}
+{% if ctx.schedule %}
+<div class="notes-b"><div class="notes-h">{{ LT({'en': 'Payment terms', 'ar': 'شروط الدفع'}) }}</div>
+<table class="sched">
+{% for s in ctx.schedule %}<tr><td>{{ s.term }}</td><td>{{ s.due }}</td><td class="c-num"><span class="num">{{ s.amount }}</span></td></tr>{% endfor %}
+</table></div>
+{% endif %}
+{% for n in ctx.notes %}
+<div class="notes-b"><div class="notes-h">{{ LT(n.label) }}</div><div>{{ n.html }}</div></div>
+{% endfor %}
+{% if ctx.qr %}<div class="qr">{{ ctx.qr }}</div>{% endif %}
+{% endmacro %}
+
+{% macro bottom() %}
+<table class="bottom"><tr>
+	<td class="nt">{{ notes() }}</td>
+	<td class="tt">{{ totals() }}</td>
+</tr></table>
+{% endmacro %}
+
+{% macro sig(box=True, stamp=False) %}
+{% if ctx.cfg.signature %}
+<table class="sig"><tr>
+{% for s in ctx.sig %}
+	<td class="sg"><div class="{{ 'sgbox' if box else '' }}"><div class="sg-space"></div><div class="sg-line"></div><div class="sg-l">{{ L(s) }}</div>{% if stamp %}<div class="stamp">{{ LT({'en': 'Signature / Stamp', 'ar': 'التوقيع / الختم'}) }}</div>{% endif %}</div></td>
+{% endfor %}
+</tr></table>
+{% endif %}
+{% endmacro %}
+
+{% macro footer(extra='') %}
+<div class="ft {{ extra }}">
+	{% if ctx.cfg.footer_text %}<div class="ft-t">{{ ctx.cfg.footer_text }}</div>{% endif %}
+	<div>{{ ctx.company.name }}{% if ctx.company.lines %} · {{ ctx.company.lines|join(' · ') }}{% endif %}</div>
+</div>
+{% endmacro %}
+
+{% macro wave(position) %}
+<svg width="100%" height="26" viewBox="0 0 1000 26" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="gw{{ position }}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{{ ctx.P }}"/><stop offset="1" stop-color="{{ ctx.S }}"/></linearGradient></defs>
+{% if position == 'top' %}
+<path d="M0 0H1000V9C820 34 640 -8 480 14C320 34 160 4 0 20Z" fill="url(#gwtop)"/>
+{% else %}
+<path d="M0 26H1000V17C820 -8 640 34 480 12C320 -8 160 22 0 6Z" fill="url(#gwbot)" opacity=".85"/>
+{% endif %}
+</svg>
+{% endmacro %}
+
+{% macro pattern() %}
+<svg width="150" height="86" viewBox="0 0 150 86" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="{{ ctx.P }}" stroke-width=".8" opacity=".35">
+<path d="M150 0L90 60M150 14L104 60M150 28L118 60M150 42L132 60M120 0L70 50M92 0L52 40"/>
+<path d="M150 86V30L120 0M150 60L100 10"/>
+<rect x="104" y="6" width="22" height="22" transform="rotate(45 115 17)"/>
+<rect x="120" y="34" width="14" height="14" transform="rotate(45 127 41)"/>
+<circle cx="140" cy="12" r="3"/>
+</svg>
+{% endmacro %}
+
+{% macro hd_split() %}
+<table class="hd"><tr>
+	<td class="lg">{% if ctx.company.logo %}<img class="logo" src="{{ ctx.company.logo }}" alt="">{% endif %}</td>
+	<td class="co">{{ co_block() }}</td>
+</tr></table>
+{% endmacro %}
+
+{% macro co_block() %}
+<div class="co-name">{{ ctx.company.name }}</div>
+{% if ctx.cfg.header_text %}<div class="co-meta">{{ ctx.cfg.header_text }}</div>{% endif %}
+{% if ctx.company.address %}<div class="co-meta">{{ ctx.company.address }}</div>{% endif %}
+{% if ctx.company.lines or ctx.company.tax_id %}<div class="co-meta">{{ ctx.company.lines|join(' · ') }}{% if ctx.company.tax_id %}{% if ctx.company.lines %} · {% endif %}{{ LT({'en': 'Tax ID', 'ar': 'الرقم الضريبي'}) }}: <span class="num">{{ ctx.company.tax_id }}</span>{% endif %}</div>{% endif %}
+{% endmacro %}
+
+{% macro party_plain() %}
+{% if ctx.party.label %}
+<div class="party-l">{{ L(ctx.party.label) }}</div>
+<div class="party-n" dir="auto">{{ ctx.party.name }}</div>
+{% if ctx.party.address %}<div class="party-a">{{ ctx.party.address }}</div>{% endif %}
+{% if ctx.party.contact %}<div class="party-a">{{ ctx.party.contact }}</div>{% endif %}
+{% if ctx.party.tax_id %}<div class="party-a">{{ LT({'en': 'Tax ID', 'ar': 'الرقم الضريبي'}) }}: <span class="num">{{ ctx.party.tax_id }}</span></div>{% endif %}
+{% endif %}
+{% endmacro %}
+
+{% macro meta_band() %}
+<table class="mband"><tr>
+{% for m in ctx.meta %}<td><b>{{ L(m.label) }}</b><br><span class="mv">{{ m.value }}</span></td>{% endfor %}
+</tr></table>
+{% endmacro %}
+
+{% macro payments() %}
+{% if ctx.payments %}
+<div class="pay-h">{{ LT({'en': 'Payment history', 'ar': 'سجل المدفوعات'}) }}</div>
+<table class="paytbl"><thead><tr>
+	<th>{{ L({'en': 'Date', 'ar': 'التاريخ'}) }}</th><th>{{ L({'en': 'Method', 'ar': 'الطريقة'}) }}</th><th>{{ L({'en': 'Reference', 'ar': 'المرجع'}) }}</th><th class="c-num">{{ L({'en': 'Amount', 'ar': 'المبلغ'}) }}</th>
+</tr></thead><tbody>
+{% for r in ctx.payments %}<tr><td>{{ r.date }}</td><td>{{ r.method }}</td><td>{{ r.ref }}</td><td class="c-num"><span class="num">{{ r.amount }}</span></td></tr>{% endfor %}
+</tbody></table>
+{% endif %}
+{% endmacro %}

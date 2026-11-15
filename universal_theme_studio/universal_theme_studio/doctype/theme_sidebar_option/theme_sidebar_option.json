@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "creation": "2026-11-12 00:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "theme",
+  "appearance",
+  "pattern",
+  "active_style",
+  "width",
+  "icon_style"
+ ],
+ "fields": [
+  {
+   "fieldname": "theme",
+   "label": "Theme",
+   "fieldtype": "Select",
+   "options": "Fiori Blue\nRedwood Purple\nEmerald Modern\nMidnight Pro\nSandstone Premium\nOcean Breeze\nSunset Fusion\nForest Harmony\nRoyal Indigo\nModern Teal\nCarbon Pro",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "appearance",
+   "label": "Appearance",
+   "fieldtype": "Select",
+   "options": "Classic\nGlass\nGradient",
+   "default": "Classic",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "pattern",
+   "label": "Decorative Pattern",
+   "fieldtype": "Select",
+   "options": "None\nGeometric Lines\nSoft Waves\nAbstract Shapes\nCurved Lines",
+   "default": "None",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "active_style",
+   "label": "Active Item Style",
+   "fieldtype": "Select",
+   "options": "Colored Indicator\nRounded Highlight\nGradient Highlight",
+   "default": "Rounded Highlight",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "width",
+   "label": "Width",
+   "fieldtype": "Select",
+   "options": "Compact\nComfortable\nWide",
+   "default": "Comfortable",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "icon_style",
+   "label": "Icon Style",
+   "fieldtype": "Select",
+   "options": "Standard\nRounded Background",
+   "default": "Standard",
+   "in_list_view": 1,
+   "columns": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-11-12 15:00:00",
+ "modified_by": "Administrator",
+ "module": "Universal Theme Studio",
+ "name": "Theme Sidebar Option",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

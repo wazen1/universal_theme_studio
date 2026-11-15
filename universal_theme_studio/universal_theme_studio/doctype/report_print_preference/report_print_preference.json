@@ -1,0 +1,81 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:user",
+ "creation": "2026-11-13 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "report_style",
+  "page_size",
+  "orientation",
+  "font",
+  "show_rownum"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "reqd": 1,
+   "unique": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "report_style",
+   "fieldtype": "Select",
+   "label": "Report Style",
+   "options": "\nOracle Classic\nOracle Modern\nAudit Ledger\nStandard (Frappe)"
+  },
+  {
+   "fieldname": "page_size",
+   "fieldtype": "Select",
+   "label": "Page Size",
+   "options": "\nA4\nA3"
+  },
+  {
+   "fieldname": "orientation",
+   "fieldtype": "Select",
+   "label": "Orientation",
+   "options": "\nLandscape\nPortrait"
+  },
+  {
+   "fieldname": "font",
+   "fieldtype": "Select",
+   "label": "Font",
+   "options": "\nTajawal\nCairo"
+  },
+  {
+   "fieldname": "show_rownum",
+   "fieldtype": "Select",
+   "label": "Row Numbers",
+   "options": "\nYes\nNo"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-13 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Universal Theme Studio",
+ "name": "Report Print Preference",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "System Manager",
+   "share": 0,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,187 @@
+/* Universal Theme Studio - /desk launcher wallpaper.
+   Frappe leaves body.desktop-page on every desk route, so every rule is scoped to a body that
+   contains the *visible* launcher (#page-desktop is display:none elsewhere): no other page is affected. Wallpaper = fixed ::before layer (photo, then theme gradient
+   as the fallback if the image is missing); ::after = overlay. Icons/markup are untouched. */
+
+/* Per-theme default photo. Custom uploads (Theme Settings) win via --uts-wp-img-<key> / --uts-wp-all. */
+html[data-uts-theme="fiori-blue"]{
+	--uts-wp-default: url("/assets/universal_theme_studio/wallpapers/fiori-blue-2560.jpg");
+	--uts-wp-photo: var(--uts-wp-img-fiori-blue, var(--uts-wp-all, var(--uts-wp-default)));
+}
+html[data-uts-theme="redwood-purple"]{
+	--uts-wp-default: url("/assets/universal_theme_studio/wallpapers/redwood-purple-2560.jpg");
+	--uts-wp-photo: var(--uts-wp-img-redwood-purple, var(--uts-wp-all, var(--uts-wp-default)));
+}
+html[data-uts-theme="emerald-modern"]{
+	--uts-wp-default: url("/assets/universal_theme_studio/wallpapers/emerald-modern-2560.jpg");
+	--uts-wp-photo: var(--uts-wp-img-emerald-modern, var(--uts-wp-all, var(--uts-wp-default)));
+}
+html[data-uts-theme="midnight-pro"]{
+	--uts-wp-default: url("/assets/universal_theme_studio/wallpapers/midnight-pro-2560.jpg");
+	--uts-wp-photo: var(--uts-wp-img-midnight-pro, var(--uts-wp-all, var(--uts-wp-default)));
+}
+html[data-uts-theme="sandstone-premium"]{
+	--uts-wp-default: url("/assets/universal_theme_studio/wallpapers/sandstone-premium-2560.jpg");
+	--uts-wp-photo: var(--uts-wp-img-sandstone-premium, var(--uts-wp-all, var(--uts-wp-default)));
+}
+@media (max-width: 1400px){
+	html[data-uts-theme="fiori-blue"]{ --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/fiori-blue-1280.jpg"); }
+	html[data-uts-theme="redwood-purple"]{ --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/redwood-purple-1280.jpg"); }
+	html[data-uts-theme="emerald-modern"]{ --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/emerald-modern-1280.jpg"); }
+	html[data-uts-theme="midnight-pro"]{ --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/midnight-pro-1280.jpg"); }
+	html[data-uts-theme="sandstone-premium"]{ --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/sandstone-premium-1280.jpg"); }
+}
+
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])){ background: transparent; isolation: isolate; }
+
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"]))::before{
+	content: ""; position: fixed; inset: -48px; z-index: -2; pointer-events: none;
+	background-image: var(--uts-wp-photo, none), var(--uts-wp-default, none), var(--uts-hero, none);
+	background-size: var(--uts-wp-fit, cover), cover, cover;
+	background-position: var(--uts-wp-pos, center), center, center;
+	background-repeat: no-repeat;
+	filter: blur(var(--uts-wp-blur, 0px));
+	transform: translateZ(0);
+}
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"]))::after{
+	content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+	background:
+		linear-gradient(rgb(0 0 0 / var(--uts-wp-overlay, .25)), rgb(0 0 0 / var(--uts-wp-overlay, .25))),
+		linear-gradient(to bottom, rgb(0 0 0 / .28), transparent 28%, transparent 70%, rgb(0 0 0 / .30));
+}
+html[data-uts-wp="on"][data-uts-mode="dark"] body.desktop-page:has(#page-desktop:not([style*="display: none"]))::after{
+	background:
+		linear-gradient(rgb(0 0 0 / calc(var(--uts-wp-overlay, .25) + .18)), rgb(0 0 0 / calc(var(--uts-wp-overlay, .25) + .18))),
+		linear-gradient(to bottom, rgb(0 0 0 / .3), transparent 28%, transparent 70%, rgb(0 0 0 / .35));
+}
+
+/* Let the wallpaper show through Frappe's solid containers (desk launcher only) */
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .main-section,
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) #body,
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .page-container,
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) #page-desktop,
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .page-body,
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .page-content,
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .layout-main,
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .layout-main-section,
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .layout-main-section-wrapper,
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-wrapper,
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-container{ background: transparent !important; }
+
+/* Readability over a photo: light text with a soft shadow */
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .icon-title,
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .icon-subtitle{
+	color: #fff; text-shadow: 0 1px 2px rgb(0 0 0 / .65), 0 0 12px rgb(0 0 0 / .35); font-weight: 600;
+}
+
+/* Optional glass cards: paint only (no padding/size change), so ordering and layout stay as Frappe defines them */
+html[data-uts-wp="on"][data-uts-glass="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-icon{
+	border-radius: var(--uts-r-lg, 14px);
+	background: rgb(12 16 26 / var(--uts-glass-a, .35));
+	border: 1px solid rgb(255 255 255 / .22);
+	box-shadow: 0 8px 28px rgb(0 0 0 / .28), inset 0 1px 0 rgb(255 255 255 / .18);
+	-webkit-backdrop-filter: blur(14px) saturate(1.3);
+	backdrop-filter: blur(14px) saturate(1.3);
+	transition: transform .16s ease, background .16s ease, box-shadow .16s ease;
+}
+html[data-uts-wp="on"][data-uts-glass="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-icon:hover,
+html[data-uts-wp="on"][data-uts-glass="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-icon:focus-visible{
+	transform: translateY(-2px);
+	background: rgb(12 16 26 / calc(var(--uts-glass-a, .35) + .12));
+	box-shadow: 0 14px 34px rgb(0 0 0 / .36), inset 0 1px 0 rgb(255 255 255 / .24);
+}
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-icon:focus-visible{ outline: 2px solid #fff; outline-offset: 2px; }
+html[data-uts-wp="on"][data-uts-glass="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-navbar .search-widget-button,
+html[data-uts-wp="on"][data-uts-glass="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-navbar .desktop-avatar,
+html[data-uts-wp="on"][data-uts-glass="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-navbar .desktop-notification-icon{
+	background: rgb(12 16 26 / var(--uts-glass-a, .35));
+	border: 1px solid rgb(255 255 255 / .22);
+	-webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+	color: #fff;
+}
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-navbar .search-widget-button *,
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-navbar .desktop-notification-icon{ color: #fff; --icon-stroke: #fff; }
+html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-navbar .navbar-home img{ filter: drop-shadow(0 1px 3px rgb(0 0 0 / .5)); }
+
+/* Accessibility / compatibility */
+@media (prefers-reduced-transparency: reduce){
+	html[data-uts-wp="on"][data-uts-glass="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-icon{
+		background: rgb(12 16 26 / .88); -webkit-backdrop-filter: none; backdrop-filter: none;
+	}
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))){
+	html[data-uts-wp="on"][data-uts-glass="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-icon{ background: rgb(12 16 26 / .78); }
+}
+@media (prefers-reduced-motion: reduce){ html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-icon{ transition: none; transform: none !important; } }
+/* Small screens: lighter blur and tighter bleed for performance */
+@media (max-width: 767px){
+	html[data-uts-wp="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"]))::before{ inset: -24px; }
+	html[data-uts-wp="on"][data-uts-glass="on"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-icon{ -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+}
+
+/* ===== v1.4: wallpapers for the six mixed-colour themes + abstract presets ===== */
+html[data-uts-theme="ocean-breeze"]{
+	--uts-wp-default: url("/assets/universal_theme_studio/wallpapers/ocean-breeze-2560.jpg");
+	--uts-wp-photo: var(--uts-wp-img-ocean-breeze, var(--uts-wp-all, var(--uts-wp-default)));
+}
+html[data-uts-theme="sunset-fusion"]{
+	--uts-wp-default: url("/assets/universal_theme_studio/wallpapers/sunset-fusion-2560.jpg");
+	--uts-wp-photo: var(--uts-wp-img-sunset-fusion, var(--uts-wp-all, var(--uts-wp-default)));
+}
+html[data-uts-theme="forest-harmony"]{
+	--uts-wp-default: url("/assets/universal_theme_studio/wallpapers/forest-harmony-2560.jpg");
+	--uts-wp-photo: var(--uts-wp-img-forest-harmony, var(--uts-wp-all, var(--uts-wp-default)));
+}
+html[data-uts-theme="royal-indigo"]{
+	--uts-wp-default: url("/assets/universal_theme_studio/wallpapers/royal-indigo-2560.jpg");
+	--uts-wp-photo: var(--uts-wp-img-royal-indigo, var(--uts-wp-all, var(--uts-wp-default)));
+}
+html[data-uts-theme="modern-teal"]{
+	--uts-wp-default: url("/assets/universal_theme_studio/wallpapers/modern-teal-2560.jpg");
+	--uts-wp-photo: var(--uts-wp-img-modern-teal, var(--uts-wp-all, var(--uts-wp-default)));
+}
+html[data-uts-theme="carbon-pro"]{
+	--uts-wp-default: url("/assets/universal_theme_studio/wallpapers/carbon-pro-2560.jpg");
+	--uts-wp-photo: var(--uts-wp-img-carbon-pro, var(--uts-wp-all, var(--uts-wp-default)));
+}
+@media (max-width: 1400px){
+	html[data-uts-theme="ocean-breeze"]{ --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/ocean-breeze-1280.jpg"); }
+	html[data-uts-theme="sunset-fusion"]{ --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/sunset-fusion-1280.jpg"); }
+	html[data-uts-theme="forest-harmony"]{ --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/forest-harmony-1280.jpg"); }
+	html[data-uts-theme="royal-indigo"]{ --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/royal-indigo-1280.jpg"); }
+	html[data-uts-theme="modern-teal"]{ --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/modern-teal-1280.jpg"); }
+	html[data-uts-theme="carbon-pro"]{ --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/carbon-pro-1280.jpg"); }
+}
+/* Presets: chosen by the user (or the admin default); set by uts.js as data-uts-wp-preset. They replace the photo only. */
+html[data-uts-wp-preset="mint-soft"]{ --uts-wp-photo: url("/assets/universal_theme_studio/wallpapers/preset-mint-soft-2560.jpg"); --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/preset-mint-soft-2560.jpg"); }
+html[data-uts-wp-preset="rose-elegant"]{ --uts-wp-photo: url("/assets/universal_theme_studio/wallpapers/preset-rose-elegant-2560.jpg"); --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/preset-rose-elegant-2560.jpg"); }
+html[data-uts-wp-preset="sky-glass"]{ --uts-wp-photo: url("/assets/universal_theme_studio/wallpapers/preset-sky-glass-2560.jpg"); --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/preset-sky-glass-2560.jpg"); }
+html[data-uts-wp-preset="amber-light"]{ --uts-wp-photo: url("/assets/universal_theme_studio/wallpapers/preset-amber-light-2560.jpg"); --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/preset-amber-light-2560.jpg"); }
+html[data-uts-wp-preset="slate-modern"]{ --uts-wp-photo: url("/assets/universal_theme_studio/wallpapers/preset-slate-modern-2560.jpg"); --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/preset-slate-modern-2560.jpg"); }
+html[data-uts-wp-preset="arctic-white"]{ --uts-wp-photo: url("/assets/universal_theme_studio/wallpapers/preset-arctic-white-2560.jpg"); --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/preset-arctic-white-2560.jpg"); }
+@media (max-width: 1400px){
+	html[data-uts-wp-preset="mint-soft"]{ --uts-wp-photo: url("/assets/universal_theme_studio/wallpapers/preset-mint-soft-1280.jpg"); --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/preset-mint-soft-1280.jpg"); }
+	html[data-uts-wp-preset="rose-elegant"]{ --uts-wp-photo: url("/assets/universal_theme_studio/wallpapers/preset-rose-elegant-1280.jpg"); --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/preset-rose-elegant-1280.jpg"); }
+	html[data-uts-wp-preset="sky-glass"]{ --uts-wp-photo: url("/assets/universal_theme_studio/wallpapers/preset-sky-glass-1280.jpg"); --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/preset-sky-glass-1280.jpg"); }
+	html[data-uts-wp-preset="amber-light"]{ --uts-wp-photo: url("/assets/universal_theme_studio/wallpapers/preset-amber-light-1280.jpg"); --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/preset-amber-light-1280.jpg"); }
+	html[data-uts-wp-preset="slate-modern"]{ --uts-wp-photo: url("/assets/universal_theme_studio/wallpapers/preset-slate-modern-1280.jpg"); --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/preset-slate-modern-1280.jpg"); }
+	html[data-uts-wp-preset="arctic-white"]{ --uts-wp-photo: url("/assets/universal_theme_studio/wallpapers/preset-arctic-white-1280.jpg"); --uts-wp-default: url("/assets/universal_theme_studio/wallpapers/preset-arctic-white-1280.jpg"); }
+}
+/* Light presets: keep the pastel look (softer overlay) and make text outside glass cards dark */
+html[data-uts-wp="on"][data-uts-wp-tone="light"] body.desktop-page:has(#page-desktop:not([style*="display: none"]))::after{
+	background:
+		linear-gradient(rgb(0 0 0 / calc(var(--uts-wp-overlay, .25) * .35)), rgb(0 0 0 / calc(var(--uts-wp-overlay, .25) * .35))),
+		linear-gradient(to bottom, rgb(255 255 255 / .25), transparent 30%, transparent 70%, rgb(255 255 255 / .2));
+}
+html[data-uts-wp="on"][data-uts-wp-tone="light"]:not([data-uts-glass="on"]) body.desktop-page:has(#page-desktop:not([style*="display: none"])) .icon-title,
+html[data-uts-wp="on"][data-uts-wp-tone="light"]:not([data-uts-glass="on"]) body.desktop-page:has(#page-desktop:not([style*="display: none"])) .icon-subtitle{
+	color: #14202b; text-shadow: 0 1px 0 rgb(255 255 255 / .7); }
+
+/* Light presets: stronger glass so white labels keep >= 4.5:1 over pastel wallpapers */
+html[data-uts-wp="on"][data-uts-glass="on"][data-uts-wp-tone="light"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-icon{
+	background: rgb(12 16 26 / min(.9, calc(var(--uts-glass-a, .35) + .25))); }
+html[data-uts-wp="on"][data-uts-glass="on"][data-uts-wp-tone="light"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-icon:hover,
+html[data-uts-wp="on"][data-uts-glass="on"][data-uts-wp-tone="light"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-icon:focus-visible{
+	background: rgb(12 16 26 / min(.95, calc(var(--uts-glass-a, .35) + .37))); }
+html[data-uts-wp="on"][data-uts-glass="on"][data-uts-wp-tone="light"] body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-navbar :is(.search-widget-button, .desktop-avatar, .desktop-notification-icon){
+	background: rgb(12 16 26 / min(.9, calc(var(--uts-glass-a, .35) + .25))); }

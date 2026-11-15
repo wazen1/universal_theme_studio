@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "autoname": "field:user",
+ "creation": "2026-11-12 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "sb_theme",
+  "theme",
+  "mode",
+  "wallpaper",
+  "sb_fonts",
+  "font_interface",
+  "font_heading",
+  "cb_fonts",
+  "font_table",
+  "font_form"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "label": "User",
+   "fieldtype": "Link",
+   "options": "User",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_theme",
+   "label": "Theme",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "theme",
+   "label": "Theme",
+   "fieldtype": "Select",
+   "options": "\nfiori-blue\nredwood-purple\nemerald-modern\nmidnight-pro\nsandstone-premium\nocean-breeze\nsunset-fusion\nforest-harmony\nroyal-indigo\nmodern-teal\ncarbon-pro",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "mode",
+   "label": "Light / Dark",
+   "fieldtype": "Select",
+   "options": "\nlight\ndark\nauto"
+  },
+  {
+   "fieldname": "wallpaper",
+   "label": "Wallpaper",
+   "fieldtype": "Data",
+   "description": "'theme' or a preset key; empty follows the organization default."
+  },
+  {
+   "fieldname": "sb_fonts",
+   "label": "Fonts",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "font_interface",
+   "label": "Interface & Navigation Font",
+   "fieldtype": "Select",
+   "options": "\ntajawal\ncairo\nibm-plex-sans-arabic\nalexandria\nreadex-pro\nalmarai\nnoto-sans-arabic\nrubik\nsystem"
+  },
+  {
+   "fieldname": "font_heading",
+   "label": "Headings & Cards Font",
+   "fieldtype": "Select",
+   "options": "\ntajawal\ncairo\nibm-plex-sans-arabic\nalexandria\nreadex-pro\nalmarai\nnoto-sans-arabic\nrubik\nsystem"
+  },
+  {
+   "fieldname": "cb_fonts",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "font_table",
+   "label": "Tables & Data Font",
+   "fieldtype": "Select",
+   "options": "\ntajawal\ncairo\nibm-plex-sans-arabic\nalexandria\nreadex-pro\nalmarai\nnoto-sans-arabic\nrubik\nsystem"
+  },
+  {
+   "fieldname": "font_form",
+   "label": "Forms & Inputs Font",
+   "fieldtype": "Select",
+   "options": "\ntajawal\ncairo\nibm-plex-sans-arabic\nalexandria\nreadex-pro\nalmarai\nnoto-sans-arabic\nrubik\nsystem"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-12 18:00:00",
+ "modified_by": "Administrator",
+ "module": "Universal Theme Studio",
+ "name": "Theme User Preference",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 0,
+   "export": 1,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 0,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "user",
+ "track_changes": 1
+}

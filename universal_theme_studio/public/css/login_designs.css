@@ -1,0 +1,325 @@
+/* Universal Theme Studio - six login designs (split-screen: visual panel + glass card).
+   Everything is scoped to html[data-uts-login-design] on /login, so no other page changes and the
+   native page is untouched without the attribute (also with ?native=1). Frappe's forms/handlers are not modified:
+   only colours, backgrounds, spacing and one added decorative panel (#uts-lv, built by js/login_designer.js). */
+
+/* ---------- per-design tokens ---------- */
+html[data-uts-login-design="ocean-breeze"]{
+	--lg-err: #9f1239;
+	--lg-img: url("/assets/universal_theme_studio/wallpapers/ocean-breeze-2560.jpg");
+	--lg-base: #0b3a8c;
+	--lg-wash: linear-gradient(135deg, rgb(11 58 140 / .62), rgb(14 165 233 / .25) 55%, rgb(20 184 166 / .35));
+	--lg-card: #ffffff; --lg-card-a: 62; --lg-card-border: rgb(255 255 255 / .6);
+	--lg-ink: #0b1f3a; --lg-ink2: #3a5578; --lg-ink3: #6c84a3; --lg-field: rgb(255 255 255 / .72); --lg-field-border: rgb(11 58 140 / .2);
+	--lg-accent: #1d4ed8; --lg-btn: linear-gradient(100deg, #1d4ed8, #0ea5e9 55%, #14b8a6); --lg-btn-glow: 0 10px 26px rgb(14 165 233 / .45);
+	--lg-radius: 22px; --lg-fr: 16px; --lg-head-w: 800; --lg-head-ls: -.02em; --lg-shadow: 0 24px 60px rgb(5 30 80 / .38);
+}
+html[data-uts-login-design="sunset-fusion"]{
+	--lg-err: #9f1239;
+	--lg-img: url("/assets/universal_theme_studio/wallpapers/sunset-fusion-2560.jpg");
+	--lg-base: #7a1f4f;
+	--lg-wash: linear-gradient(135deg, rgb(194 65 12 / .55), rgb(219 39 119 / .38) 55%, rgb(91 33 182 / .5));
+	--lg-card: #fff8f2; --lg-card-a: 66; --lg-card-border: rgb(255 255 255 / .55);
+	--lg-ink: #3b1226; --lg-ink2: #7a3a52; --lg-ink3: #a8728a; --lg-field: rgb(255 255 255 / .7); --lg-field-border: rgb(194 65 12 / .25);
+	--lg-accent: #c2410c; --lg-btn: linear-gradient(100deg, #f97316, #db2777 55%, #7c3aed); --lg-btn-glow: 0 10px 26px rgb(219 39 119 / .42);
+	--lg-radius: 26px; --lg-fr: 20px; --lg-head-w: 800; --lg-head-ls: -.015em; --lg-shadow: 0 24px 60px rgb(91 20 60 / .4);
+}
+html[data-uts-login-design="forest-harmony"]{
+	--lg-err: #9f1239;
+	--lg-img: url("/assets/universal_theme_studio/wallpapers/forest-harmony-2560.jpg");
+	--lg-base: #14532d;
+	--lg-wash: linear-gradient(135deg, rgb(7 40 22 / .62), rgb(22 101 52 / .35) 55%, rgb(101 163 13 / .28));
+	--lg-card: #fbf7ea; --lg-card-a: 72; --lg-card-border: rgb(255 255 255 / .5);
+	--lg-ink: #123524; --lg-ink2: #4a6a54; --lg-ink3: #7d957f; --lg-field: rgb(255 255 255 / .7); --lg-field-border: rgb(22 101 52 / .25);
+	--lg-accent: #166534; --lg-btn: linear-gradient(100deg, #14532d, #16a34a 55%, #84cc16); --lg-btn-glow: 0 10px 26px rgb(34 150 80 / .4);
+	--lg-radius: 18px; --lg-fr: 14px; --lg-head-w: 700; --lg-head-ls: 0; --lg-shadow: 0 24px 60px rgb(3 30 15 / .42);
+}
+html[data-uts-login-design="royal-indigo"]{
+	--lg-err: #fecaca;
+	--lg-img: url("/assets/universal_theme_studio/wallpapers/royal-indigo-2560.jpg");
+	--lg-base: #1e1b4b;
+	--lg-wash: linear-gradient(135deg, rgb(30 27 75 / .72), rgb(79 70 229 / .4) 55%, rgb(192 132 252 / .35));
+	--lg-card: #1a1442; --lg-card-a: 58; --lg-card-border: rgb(255 255 255 / .26);
+	--lg-ink: #ffffff; --lg-ink2: rgb(255 255 255 / .8); --lg-ink3: rgb(255 255 255 / .55); --lg-field: rgb(255 255 255 / .1); --lg-field-border: rgb(255 255 255 / .28);
+	--lg-accent: #c4b5fd; --lg-btn: linear-gradient(100deg, #4f46e5, #7c3aed 55%, #ec4899); --lg-btn-glow: 0 10px 28px rgb(124 58 237 / .55);
+	--lg-radius: 28px; --lg-fr: 18px; --lg-head-w: 700; --lg-head-ls: -.01em; --lg-shadow: 0 28px 70px rgb(10 5 50 / .55);
+}
+html[data-uts-login-design="modern-teal"]{
+	--lg-err: #9f1239;
+	--lg-img: url("/assets/universal_theme_studio/wallpapers/login-modern-teal-2560.jpg");
+	--lg-base: #0f766e;
+	--lg-wash: linear-gradient(135deg, rgb(2 26 28 / .6), rgb(15 118 110 / .35) 55%, rgb(6 182 212 / .3));
+	--lg-card: #f2fbfa; --lg-card-a: 68; --lg-card-border: rgb(255 255 255 / .55);
+	--lg-ink: #083a38; --lg-ink2: #3e6f6c; --lg-ink3: #77a3a0; --lg-field: rgb(255 255 255 / .72); --lg-field-border: rgb(15 118 110 / .28);
+	--lg-accent: #0f766e; --lg-btn: linear-gradient(100deg, #0f766e, #14b8a6 55%, #06b6d4); --lg-btn-glow: 0 10px 26px rgb(20 184 166 / .42);
+	--lg-radius: 10px; --lg-fr: 8px; --lg-head-w: 600; --lg-head-ls: -.02em; --lg-shadow: 0 24px 60px rgb(2 40 40 / .4);
+}
+html[data-uts-login-design="carbon-pro"]{
+	--lg-err: #fecaca;
+	--lg-img: url("/assets/universal_theme_studio/wallpapers/carbon-pro-2560.jpg");
+	--lg-base: #050a1a;
+	--lg-wash: radial-gradient(60% 55% at 85% 10%, rgb(37 99 235 / .45), transparent 70%), linear-gradient(135deg, rgb(3 7 20 / .88), rgb(10 20 55 / .72) 55%, rgb(30 64 175 / .45));
+	--lg-card: #0b1226; --lg-card-a: 66; --lg-card-border: rgb(77 141 255 / .5);
+	--lg-ink: #e8edf6; --lg-ink2: rgb(232 237 246 / .78); --lg-ink3: rgb(232 237 246 / .5); --lg-field: rgb(255 255 255 / .06); --lg-field-border: rgb(77 141 255 / .4);
+	--lg-accent: #6ea8ff; --lg-btn: linear-gradient(100deg, #1d4ed8, #2563eb 50%, #38bdf8); --lg-btn-glow: 0 0 26px rgb(56 189 248 / .6);
+	--lg-radius: 14px; --lg-fr: 10px; --lg-head-w: 700; --lg-head-ls: .01em; --lg-shadow: 0 0 0 1px rgb(77 141 255 / .25), 0 28px 70px rgb(0 0 0 / .6), 0 0 60px rgb(37 99 235 / .25);
+}
+@media (max-width: 1400px){
+	html[data-uts-login-design="ocean-breeze"]{ --lg-img: url("/assets/universal_theme_studio/wallpapers/ocean-breeze-1280.jpg"); }
+	html[data-uts-login-design="sunset-fusion"]{ --lg-img: url("/assets/universal_theme_studio/wallpapers/sunset-fusion-1280.jpg"); }
+	html[data-uts-login-design="forest-harmony"]{ --lg-img: url("/assets/universal_theme_studio/wallpapers/forest-harmony-1280.jpg"); }
+	html[data-uts-login-design="royal-indigo"]{ --lg-img: url("/assets/universal_theme_studio/wallpapers/royal-indigo-1280.jpg"); }
+	html[data-uts-login-design="modern-teal"]{ --lg-img: url("/assets/universal_theme_studio/wallpapers/login-modern-teal-1280.jpg"); }
+	html[data-uts-login-design="carbon-pro"]{ --lg-img: url("/assets/universal_theme_studio/wallpapers/carbon-pro-1280.jpg"); }
+}
+
+/* ---------- backdrop: photo (or the admin's own upload) + design wash + overlay ---------- */
+html[data-uts-login-design][data-uts-theme] body[data-path="login"]{ background: var(--lg-base); min-height: 100vh; }
+html[data-uts-login-design][data-uts-theme] body[data-path="login"]::before{
+	content: ""; position: fixed; inset: 0; z-index: -2;
+	background: var(--uts-lg-image-set, var(--lg-img)) center / cover no-repeat, var(--lg-base);
+}
+html[data-uts-login-design][data-uts-theme] body[data-path="login"]::after{
+	content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+	background: var(--lg-wash), linear-gradient(rgb(0 0 0 / var(--uts-login-overlay, .35)), rgb(0 0 0 / var(--uts-login-overlay, .35)));
+}
+html[data-uts-login-design] body[data-path="login"] .page-content-wrapper,
+html[data-uts-login-design] body[data-path="login"] main.container,
+html[data-uts-login-design] body[data-path="login"] .page_content{ background: transparent; }
+
+/* ---------- login card (glass) ---------- */
+html[data-uts-login-design][data-uts-theme] body[data-path="login"] section[class^="for-"] .page-card{
+	--ink-gray-9: var(--lg-ink); --ink-gray-8: var(--lg-ink); --ink-gray-7: var(--lg-ink2); --ink-gray-6: var(--lg-ink2); --ink-gray-5: var(--lg-ink3);
+	--control-bg: var(--lg-field); --border-color: var(--lg-field-border); --text-color: var(--lg-ink); --text-muted: var(--lg-ink2);
+	width: 100%; max-width: 440px; margin: 0 auto; box-sizing: border-box;
+	padding: clamp(24px, 3vw, 40px);
+	border-radius: var(--uts-lg-radius, var(--lg-radius));
+	background: color-mix(in srgb, var(--uts-login-card, var(--lg-card)) calc(min(100, var(--lg-card-a) * var(--uts-lg-k, 1)) * 1%), transparent);
+	-webkit-backdrop-filter: blur(22px) saturate(1.5); backdrop-filter: blur(22px) saturate(1.5);
+	border: 1px solid var(--lg-card-border);
+	box-shadow: var(--lg-shadow);
+	color: var(--lg-ink);
+}
+html[data-uts-login-design] body[data-path="login"] .page-card h4{ color: var(--lg-ink); font-weight: var(--lg-head-w); letter-spacing: var(--lg-head-ls); }
+html[dir="rtl"][data-uts-login-design] body[data-path="login"] .page-card h4{ letter-spacing: 0; line-height: 1.4; }
+html[data-uts-login-design] body[data-path="login"] .page-card .page-card-subtitle,
+html[data-uts-login-design] body[data-path="login"] .page-card label,
+html[data-uts-login-design] body[data-path="login"] .page-card .sign-up-message,
+html[data-uts-login-design] body[data-path="login"] .page-card .text-muted{ color: var(--lg-ink2); }
+html[data-uts-login-design] body[data-path="login"] .page-card .app-logo{ height: 46px; width: auto; max-width: 180px; object-fit: contain; border-radius: 8px; }
+html[data-uts-login-design] body[data-path="login"] .page-card .form-control{
+	background: var(--lg-field); border: 1px solid var(--lg-field-border); color: var(--lg-ink);
+	border-radius: calc(var(--uts-lg-radius, var(--lg-radius)) * .5); height: 46px; padding-inline: 14px;
+}
+html[data-uts-login-design] body[data-path="login"] .page-card .form-control::placeholder{ color: var(--lg-ink3); }
+html[data-uts-login-design] body[data-path="login"] .page-card .form-control:focus{
+	border-color: var(--lg-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--lg-accent) 32%, transparent); outline: none;
+}
+html[data-uts-login-design] body[data-path="login"] .page-card a{ color: var(--lg-accent); }
+html[data-uts-login-design] body[data-path="login"] .page-card .toggle-password{ color: var(--lg-ink2); }
+html[data-uts-login-design] body[data-path="login"] .page-card .es-button[data-variant="solid"]{
+	background: var(--uts-login-btn, var(--lg-btn)); color: #fff; border: 0; min-height: 46px;
+	border-radius: calc(var(--uts-lg-radius, var(--lg-radius)) * .5); font-weight: 700; letter-spacing: .01em;
+	box-shadow: var(--lg-btn-glow); transition: filter .15s, transform .05s, box-shadow .15s;
+}
+html[dir="rtl"][data-uts-login-design] body[data-path="login"] .page-card .es-button{ letter-spacing: 0; }
+html[data-uts-login-design] body[data-path="login"] .page-card .es-button[data-variant="solid"]:hover{ filter: brightness(1.08) saturate(1.1); }
+html[data-uts-login-design] body[data-path="login"] .page-card .es-button[data-variant="solid"]:active{ transform: translateY(1px); }
+html[data-uts-login-design] body[data-path="login"] .page-card .es-button:not([data-variant="solid"]){
+	background: color-mix(in srgb, var(--lg-accent) 12%, transparent); color: var(--lg-ink); border: 1px solid var(--lg-field-border);
+	border-radius: calc(var(--uts-lg-radius, var(--lg-radius)) * .5); min-height: 44px;
+}
+html[data-uts-login-design] body[data-path="login"] .page-card .es-button:focus-visible{ outline: 3px solid color-mix(in srgb, var(--lg-accent) 45%, transparent); outline-offset: 2px; }
+
+/* ---------- visual panel ---------- */
+#uts-lv{ display: none; }
+html[data-uts-login-design] #uts-lv{
+	display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
+	position: fixed; inset: 0; z-index: 2; box-sizing: border-box; color: #fff; pointer-events: none;
+	padding: clamp(24px, 4vw, 56px); padding-inline-end: calc(min(560px, 46vw) + clamp(24px, 4vw, 56px));
+}
+html[data-uts-login-design] #uts-lv .lv-logo{ height: 46px; width: auto; max-width: 220px; object-fit: contain; filter: drop-shadow(0 2px 8px rgb(0 0 0 / .35)); }
+html[data-uts-login-design] #uts-lv .lv-body{ max-width: 620px; position: relative; z-index: 1; }
+html[data-uts-login-design] #uts-lv .lv-title{
+	margin: 0 0 14px; color: #fff; font-size: clamp(2.1rem, 4.4vw, 3.9rem); font-weight: var(--lg-head-w); letter-spacing: var(--lg-head-ls); line-height: 1.12;
+	text-shadow: 0 4px 24px rgb(0 0 0 / .35);
+}
+html[dir="rtl"][data-uts-login-design] #uts-lv .lv-title{ letter-spacing: 0; line-height: 1.35; font-size: clamp(2rem, 4.2vw, 3.6rem); }
+html[data-uts-login-design] #uts-lv .lv-sub{ margin: 0; font-size: clamp(1rem, 1.5vw, 1.3rem); line-height: 1.65; opacity: .93; max-width: 34em; text-shadow: 0 2px 14px rgb(0 0 0 / .35); }
+html[data-uts-login-design] #uts-lv .lv-features{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; position: relative; z-index: 1; }
+html[data-uts-lv-features="0"] #uts-lv .lv-features{ display: none; }
+html[data-uts-login-design] #uts-lv .lv-features li{
+	display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: var(--lg-fr);
+	background: rgb(255 255 255 / .13); border: 1px solid rgb(255 255 255 / .26);
+	-webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: 0 10px 30px rgb(0 0 0 / .18);
+}
+html[data-uts-login-design] #uts-lv .lv-ic{ flex: 0 0 auto; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: rgb(255 255 255 / .2); }
+html[data-uts-login-design] #uts-lv .lv-features b{ display: block; font-size: .98rem; font-weight: 700; margin-bottom: 2px; }
+html[data-uts-login-design] #uts-lv .lv-features li span:not(.lv-ic){ font-size: .84rem; line-height: 1.5; opacity: .88; display: block; }
+
+/* language switcher (the only interactive part of the panel) */
+html[data-uts-login-design] #uts-lang{
+	position: fixed; top: 16px; inset-inline-end: 20px; z-index: 6; pointer-events: auto; display: inline-flex; gap: 2px; padding: 3px;
+	border-radius: 999px; background: rgb(255 255 255 / .16); border: 1px solid rgb(255 255 255 / .3); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
+html[data-uts-login-design] #uts-lang:empty{ display: none; }
+html[data-uts-login-design] #uts-lang button{ border: 0; background: transparent; color: #fff; padding: 5px 14px; border-radius: 999px; font: inherit; font-size: .84rem; font-weight: 600; cursor: pointer; }
+html[data-uts-login-design] #uts-lang button.active{ background: #fff; color: #10203a; }
+html[data-uts-login-design] #uts-lang button:focus-visible{ outline: 2px solid #fff; outline-offset: 2px; }
+
+/* ---------- decorative shapes (behind text, never intercept clicks) ---------- */
+html[data-uts-login-design] #uts-lv .lv-shapes{ position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+html[data-uts-login-design] #uts-lv .lv-shapes i{ position: absolute; display: block; }
+/* ocean: rings + a soft turquoise orb */
+html[data-uts-login-design="ocean-breeze"] .lv-shapes i:nth-child(1){ width: 46vmin; height: 46vmin; border-radius: 50%; border: 1.5px solid rgb(255 255 255 / .35); inset-block-end: -14vmin; inset-inline-start: -8vmin; }
+html[data-uts-login-design="ocean-breeze"] .lv-shapes i:nth-child(2){ width: 30vmin; height: 30vmin; border-radius: 50%; border: 1.5px solid rgb(255 255 255 / .25); inset-block-end: -4vmin; inset-inline-start: 6vmin; }
+html[data-uts-login-design="ocean-breeze"] .lv-shapes i:nth-child(3){ width: 26vmin; height: 26vmin; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgb(45 212 191 / .55), transparent 70%); inset-block-start: 8vmin; inset-inline-start: 38%; }
+/* sunset: large blurred orbs */
+html[data-uts-login-design="sunset-fusion"] .lv-shapes i:nth-child(1){ width: 52vmin; height: 52vmin; border-radius: 50%; background: radial-gradient(circle, rgb(251 146 60 / .5), transparent 68%); inset-block-end: -16vmin; inset-inline-start: -10vmin; }
+html[data-uts-login-design="sunset-fusion"] .lv-shapes i:nth-child(2){ width: 40vmin; height: 40vmin; border-radius: 50%; background: radial-gradient(circle, rgb(244 114 182 / .45), transparent 68%); inset-block-start: -8vmin; inset-inline-start: 22%; }
+html[data-uts-login-design="sunset-fusion"] .lv-shapes i:nth-child(3){ width: 34vmin; height: 34vmin; border-radius: 50%; background: radial-gradient(circle, rgb(167 139 250 / .45), transparent 68%); inset-block-end: 10vmin; inset-inline-start: 40%; }
+/* forest: leaf shapes */
+html[data-uts-login-design="forest-harmony"] .lv-shapes i:nth-child(1){ width: 30vmin; height: 30vmin; border-radius: 0 100% 0 100%; background: linear-gradient(135deg, rgb(163 230 53 / .35), rgb(22 101 52 / .08)); transform: rotate(-20deg); inset-block-end: -6vmin; inset-inline-start: -4vmin; }
+html[data-uts-login-design="forest-harmony"] .lv-shapes i:nth-child(2){ width: 22vmin; height: 22vmin; border-radius: 0 100% 0 100%; background: linear-gradient(135deg, rgb(190 242 100 / .3), transparent); transform: rotate(35deg); inset-block-start: 10vmin; inset-inline-start: 40%; }
+html[data-uts-login-design="forest-harmony"] .lv-shapes i:nth-child(3){ width: 16vmin; height: 16vmin; border-radius: 100% 0 100% 0; border: 1.5px solid rgb(255 255 255 / .3); inset-block-end: 12vmin; inset-inline-start: 38%; transform: rotate(10deg); }
+/* indigo: glowing orbs + ring */
+html[data-uts-login-design="royal-indigo"] .lv-shapes i:nth-child(1){ width: 44vmin; height: 44vmin; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgb(192 132 252 / .5), rgb(79 70 229 / .1) 65%, transparent 72%); inset-block-end: -12vmin; inset-inline-start: -8vmin; }
+html[data-uts-login-design="royal-indigo"] .lv-shapes i:nth-child(2){ width: 24vmin; height: 24vmin; border-radius: 50%; border: 1.5px solid rgb(244 114 182 / .45); inset-block-start: 6vmin; inset-inline-start: 34%; }
+html[data-uts-login-design="royal-indigo"] .lv-shapes i:nth-child(3){ width: 10vmin; height: 10vmin; border-radius: 50%; background: radial-gradient(circle, rgb(249 168 212 / .7), transparent 70%); inset-block-end: 22vmin; inset-inline-start: 44%; }
+/* teal: architectural lines and squares */
+html[data-uts-login-design="modern-teal"] .lv-shapes i:nth-child(1){ width: 34vmin; height: 34vmin; border: 1.5px solid rgb(255 255 255 / .35); transform: rotate(45deg); inset-block-end: -10vmin; inset-inline-start: -6vmin; }
+html[data-uts-login-design="modern-teal"] .lv-shapes i:nth-child(2){ width: 22vmin; height: 22vmin; border: 1.5px solid rgb(165 243 252 / .4); transform: rotate(45deg); inset-block-start: 8vmin; inset-inline-start: 40%; }
+html[data-uts-login-design="modern-teal"] .lv-shapes i:nth-child(3){ width: 60%; height: 1.5px; background: linear-gradient(to right, transparent, rgb(165 243 252 / .6), transparent); inset-block-end: 24vmin; inset-inline-start: 0; }
+/* carbon: grid + glowing line */
+html[data-uts-login-design="carbon-pro"] .lv-shapes i:nth-child(1){ inset: 0; background-image: linear-gradient(rgb(110 168 255 / .08) 1px, transparent 1px), linear-gradient(90deg, rgb(110 168 255 / .08) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: linear-gradient(to bottom, #000, transparent 85%); mask-image: linear-gradient(to bottom, #000, transparent 85%); }
+html[data-uts-login-design="carbon-pro"] .lv-shapes i:nth-child(2){ width: 70%; height: 2px; background: linear-gradient(to right, transparent, #38bdf8, transparent); box-shadow: 0 0 18px #38bdf8, 0 0 40px rgb(56 189 248 / .6); inset-block-end: 30vmin; inset-inline-start: 0; }
+html[data-uts-login-design="carbon-pro"] .lv-shapes i:nth-child(3){ width: 28vmin; height: 28vmin; border-radius: 50%; border: 1px solid rgb(77 141 255 / .45); box-shadow: 0 0 30px rgb(37 99 235 / .4); inset-block-start: 10vmin; inset-inline-start: 40%; }
+
+/* ---------- desktop: card panel on the inline-end side (logical = mirrors in Arabic) ---------- */
+@media (min-width: 900px){
+	html[data-uts-login-design] body[data-path="login"] section[class^="for-"]{
+		position: fixed; inset-block: 0; inset-inline-end: 0; inset-inline-start: auto; width: min(560px, 46vw); margin: 0; box-sizing: border-box;
+		padding: clamp(20px, 3vw, 48px); display: flex; align-items: center; justify-content: center; z-index: 3; overflow-y: auto; background: none; box-shadow: none; border: 0;
+	}
+	html[data-uts-login-design][data-uts-login-pos="start"] body[data-path="login"] section[class^="for-"]{ inset-inline-start: 0; inset-inline-end: auto; }
+	html[data-uts-login-design][data-uts-login-pos="start"] #uts-lv{ padding-inline-end: clamp(24px, 4vw, 56px); padding-inline-start: calc(min(560px, 46vw) + clamp(24px, 4vw, 56px)); }
+	html[data-uts-login-design][data-uts-login-pos="center"] body[data-path="login"] section[class^="for-"]{ inset-inline: 0; width: 100%; }
+	html[data-uts-login-design][data-uts-login-pos="center"] #uts-lv{ padding-inline: clamp(24px, 4vw, 56px); }
+	html[data-uts-login-design][data-uts-login-pos="center"] #uts-lv .lv-body,
+	html[data-uts-login-design][data-uts-login-pos="center"] #uts-lv .lv-features{ visibility: hidden; }
+}
+/* tablet */
+@media (min-width: 600px) and (max-width: 1099px){
+	html[data-uts-login-design] #uts-lv .lv-features{ grid-template-columns: 1fr; max-width: 360px; }
+}
+/* mobile / small tablet: stacked (brand + headline above, card below), page scrolls */
+@media (max-width: 899px){
+	/* Frappe's body is a flex column with min-height:100vh and its mobile card is min-height:100vh: keep our blocks at natural size */
+	html[data-uts-login-design] body[data-path="login"]{ display: block; }
+	html[data-uts-login-design] #uts-lv{ position: relative; inset: auto; z-index: 2; padding: 64px 20px 4px; gap: 14px; min-height: 0; flex: 0 0 auto; }
+	html[data-uts-login-design] body[data-path="login"] section[class^="for-"] .page-card{ min-height: 0 !important; height: auto; }
+	html[data-uts-login-design] body[data-path="login"] .page-content-wrapper{ min-height: 0; }
+	html[data-uts-login-design] #uts-lv .lv-title{ font-size: clamp(1.6rem, 6.4vw, 2.2rem); margin-bottom: 8px; }
+	html[data-uts-login-design] #uts-lv .lv-sub{ font-size: .98rem; }
+	html[data-uts-login-design] #uts-lv .lv-features{ display: none; }
+	html[data-uts-login-design] #uts-lv .lv-top{ position: absolute; top: 18px; inset-inline-start: 20px; }
+	html[data-uts-login-design] #uts-lv .lv-logo{ height: 38px; }
+	html[data-uts-login-design] body[data-path="login"] section[class^="for-"]{ position: relative; width: auto; margin: 12px 16px 32px; padding: 0; z-index: 3; }
+	html[data-uts-login-design] body[data-path="login"] section[class^="for-"] .page-card{ padding: 24px 20px; max-width: 480px; }
+	html[data-uts-login-design] #uts-lang{ top: 12px; }
+}
+/* preview mode (Theme Settings iframe): inert */
+html[data-uts-preview] body[data-path="login"] section[class^="for-"]{ pointer-events: none; user-select: none; }
+@media (prefers-reduced-transparency: reduce){
+	html[data-uts-login-design][data-uts-theme] body[data-path="login"] section[class^="for-"] .page-card{ -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--lg-card); }
+}
+@media (prefers-reduced-motion: reduce){ html[data-uts-login-design] *{ transition: none !important; } }
+
+/* long translated labels (e.g. "Login with Email Link" in Arabic) must wrap inside the button, not overflow it */
+html[data-uts-login-design] body[data-path="login"] .page-card .es-button{ white-space: normal; text-align: center; height: auto; line-height: 1.4; padding-block: 10px; }
+
+/* native alerts (wrong password, reset link sent, ...) stay readable on every glass colour */
+html[data-uts-login-design] body[data-path="login"] .page-card .es-alert{
+	background: color-mix(in srgb, var(--lg-err) 14%, transparent); border: 1px solid color-mix(in srgb, var(--lg-err) 45%, transparent); border-radius: calc(var(--uts-lg-radius, var(--lg-radius)) * .5);
+}
+html[data-uts-login-design] body[data-path="login"] .page-card .es-alert,
+html[data-uts-login-design] body[data-path="login"] .page-card .es-alert *{ color: var(--lg-err) !important; }
+html[data-uts-login-design] body[data-path="login"] .page-card .es-alert svg{ stroke: var(--lg-err); }
+
+/* without feature cards, keep the headline vertically centred in the visual panel */
+html[data-uts-login-design][data-uts-lv-features="0"] #uts-lv .lv-body{ margin-block: auto; }
+
+/* ===== v1.8: login designs for the original five themes (login now always follows the organization theme) ===== */
+html[data-uts-login-design="fiori-blue"]{
+	--lg-err: #9f1239;
+	--lg-img: url("/assets/universal_theme_studio/wallpapers/fiori-blue-2560.jpg");
+	--lg-base: #0a4f9c;
+	--lg-wash: linear-gradient(135deg, rgb(10 79 156 / .66), rgb(10 110 209 / .32) 55%, rgb(233 115 12 / .2));
+	--lg-card: #ffffff; --lg-card-a: 64; --lg-card-border: rgb(255 255 255 / .6);
+	--lg-ink: #0b2540; --lg-ink2: #3d5878; --lg-ink3: #7088a6; --lg-field: rgb(255 255 255 / .74); --lg-field-border: rgb(10 79 156 / .22);
+	--lg-accent: #0a6ed1; --lg-btn: linear-gradient(100deg, #0a4f9c, #0a6ed1 55%, #2f8de0); --lg-btn-glow: 0 10px 26px rgb(10 110 209 / .42);
+	--lg-radius: 10px; --lg-fr: 8px; --lg-head-w: 700; --lg-head-ls: -.01em; --lg-shadow: 0 24px 60px rgb(4 30 70 / .4);
+}
+html[data-uts-login-design="redwood-purple"]{
+	--lg-err: #9f1239;
+	--lg-img: url("/assets/universal_theme_studio/wallpapers/redwood-purple-2560.jpg");
+	--lg-base: #3d2565;
+	--lg-wash: linear-gradient(135deg, rgb(43 26 63 / .72), rgb(107 63 160 / .4) 55%, rgb(199 70 52 / .3));
+	--lg-card: #faf6fb; --lg-card-a: 66; --lg-card-border: rgb(255 255 255 / .55);
+	--lg-ink: #2b1a3f; --lg-ink2: #6a5382; --lg-ink3: #9a88ad; --lg-field: rgb(255 255 255 / .72); --lg-field-border: rgb(107 63 160 / .25);
+	--lg-accent: #6b3fa0; --lg-btn: linear-gradient(100deg, #3d2565, #6b3fa0 55%, #c74634); --lg-btn-glow: 0 10px 26px rgb(107 63 160 / .45);
+	--lg-radius: 26px; --lg-fr: 18px; --lg-head-w: 700; --lg-head-ls: -.01em; --lg-shadow: 0 26px 64px rgb(30 12 55 / .45);
+}
+html[data-uts-login-design="emerald-modern"]{
+	--lg-err: #9f1239;
+	--lg-img: url("/assets/universal_theme_studio/wallpapers/emerald-modern-2560.jpg");
+	--lg-base: #064e3b;
+	--lg-wash: linear-gradient(135deg, rgb(4 40 30 / .66), rgb(4 120 87 / .36) 55%, rgb(52 211 153 / .22));
+	--lg-card: #f3fbf7; --lg-card-a: 68; --lg-card-border: rgb(255 255 255 / .55);
+	--lg-ink: #0b3a2c; --lg-ink2: #3f6f5d; --lg-ink3: #79a392; --lg-field: rgb(255 255 255 / .72); --lg-field-border: rgb(4 120 87 / .27);
+	--lg-accent: #047857; --lg-btn: linear-gradient(100deg, #064e3b, #047857 55%, #34d399); --lg-btn-glow: 0 10px 26px rgb(4 150 105 / .4);
+	--lg-radius: 16px; --lg-fr: 12px; --lg-head-w: 700; --lg-head-ls: -.015em; --lg-shadow: 0 24px 60px rgb(2 36 26 / .42);
+}
+html[data-uts-login-design="midnight-pro"]{
+	--lg-err: #fecaca;
+	--lg-img: url("/assets/universal_theme_studio/wallpapers/midnight-pro-2560.jpg");
+	--lg-base: #0b1020;
+	--lg-wash: linear-gradient(135deg, rgb(7 11 24 / .82), rgb(15 20 36 / .66) 55%, rgb(79 70 229 / .42));
+	--lg-card: #0f1424; --lg-card-a: 66; --lg-card-border: rgb(111 140 255 / .45);
+	--lg-ink: #eaeefc; --lg-ink2: rgb(234 238 252 / .78); --lg-ink3: rgb(234 238 252 / .5); --lg-field: rgb(255 255 255 / .07); --lg-field-border: rgb(111 140 255 / .4);
+	--lg-accent: #8aa2ff; --lg-btn: linear-gradient(100deg, #312e81, #4f46e5 55%, #6f8cff); --lg-btn-glow: 0 0 26px rgb(99 102 241 / .6);
+	--lg-radius: 14px; --lg-fr: 10px; --lg-head-w: 700; --lg-head-ls: 0; --lg-shadow: 0 0 0 1px rgb(99 102 241 / .28), 0 28px 70px rgb(0 0 0 / .6), 0 0 60px rgb(79 70 229 / .25);
+}
+html[data-uts-login-design="sandstone-premium"]{
+	--lg-err: #9f1239;
+	--lg-img: url("/assets/universal_theme_studio/wallpapers/sandstone-premium-2560.jpg");
+	--lg-base: #5a3d1a;
+	--lg-wash: linear-gradient(135deg, rgb(61 42 20 / .66), rgb(143 95 29 / .36) 55%, rgb(217 168 91 / .22));
+	--lg-card: #fffaf0; --lg-card-a: 72; --lg-card-border: rgb(255 255 255 / .5);
+	--lg-ink: #3d2a14; --lg-ink2: #7a6347; --lg-ink3: #a89479; --lg-field: rgb(255 255 255 / .74); --lg-field-border: rgb(143 95 29 / .28);
+	--lg-accent: #8f5f1d; --lg-btn: linear-gradient(100deg, #5a3d1a, #8f5f1d 55%, #d9a85b); --lg-btn-glow: 0 10px 26px rgb(184 116 58 / .4);
+	--lg-radius: 12px; --lg-fr: 10px; --lg-head-w: 700; --lg-head-ls: 0; --lg-shadow: 0 24px 60px rgb(50 30 10 / .42);
+}
+@media (max-width: 1400px){
+	html[data-uts-login-design="fiori-blue"]{ --lg-img: url("/assets/universal_theme_studio/wallpapers/fiori-blue-1280.jpg"); }
+	html[data-uts-login-design="redwood-purple"]{ --lg-img: url("/assets/universal_theme_studio/wallpapers/redwood-purple-1280.jpg"); }
+	html[data-uts-login-design="emerald-modern"]{ --lg-img: url("/assets/universal_theme_studio/wallpapers/emerald-modern-1280.jpg"); }
+	html[data-uts-login-design="midnight-pro"]{ --lg-img: url("/assets/universal_theme_studio/wallpapers/midnight-pro-1280.jpg"); }
+	html[data-uts-login-design="sandstone-premium"]{ --lg-img: url("/assets/universal_theme_studio/wallpapers/sandstone-premium-1280.jpg"); }
+}
+/* shapes */
+html[data-uts-login-design="fiori-blue"] .lv-shapes i:nth-child(1){ width: 36vmin; height: 36vmin; border: 1.5px solid rgb(255 255 255 / .35); inset-block-end: -10vmin; inset-inline-start: -6vmin; }
+html[data-uts-login-design="fiori-blue"] .lv-shapes i:nth-child(2){ width: 24vmin; height: 24vmin; border: 1.5px solid rgb(191 224 255 / .4); transform: rotate(45deg); inset-block-start: 9vmin; inset-inline-start: 40%; }
+html[data-uts-login-design="fiori-blue"] .lv-shapes i:nth-child(3){ width: 60%; height: 1.5px; background: linear-gradient(to right, transparent, rgb(191 224 255 / .6), transparent); inset-block-end: 24vmin; inset-inline-start: 0; }
+html[data-uts-login-design="redwood-purple"] .lv-shapes i:nth-child(1){ width: 46vmin; height: 46vmin; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgb(199 146 255 / .45), rgb(107 63 160 / .1) 65%, transparent 72%); inset-block-end: -12vmin; inset-inline-start: -8vmin; }
+html[data-uts-login-design="redwood-purple"] .lv-shapes i:nth-child(2){ width: 28vmin; height: 28vmin; border-radius: 50%; border: 1.5px solid rgb(255 255 255 / .3); inset-block-start: 7vmin; inset-inline-start: 36%; }
+html[data-uts-login-design="redwood-purple"] .lv-shapes i:nth-child(3){ width: 16vmin; height: 16vmin; border-radius: 50%; background: radial-gradient(circle, rgb(255 140 120 / .5), transparent 70%); inset-block-end: 22vmin; inset-inline-start: 42%; }
+html[data-uts-login-design="emerald-modern"] .lv-shapes i:nth-child(1){ width: 34vmin; height: 34vmin; border-radius: 0 100% 0 100%; background: linear-gradient(135deg, rgb(52 211 153 / .35), rgb(4 120 87 / .08)); transform: rotate(-18deg); inset-block-end: -8vmin; inset-inline-start: -5vmin; }
+html[data-uts-login-design="emerald-modern"] .lv-shapes i:nth-child(2){ width: 22vmin; height: 22vmin; border-radius: 100% 0 100% 0; border: 1.5px solid rgb(167 243 208 / .4); transform: rotate(20deg); inset-block-start: 9vmin; inset-inline-start: 40%; }
+html[data-uts-login-design="emerald-modern"] .lv-shapes i:nth-child(3){ width: 14vmin; height: 14vmin; border-radius: 50%; background: radial-gradient(circle, rgb(110 231 183 / .5), transparent 70%); inset-block-end: 20vmin; inset-inline-start: 42%; }
+html[data-uts-login-design="midnight-pro"] .lv-shapes i:nth-child(1){ inset: 0; background-image: linear-gradient(rgb(138 162 255 / .08) 1px, transparent 1px), linear-gradient(90deg, rgb(138 162 255 / .08) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: linear-gradient(to bottom, #000, transparent 85%); mask-image: linear-gradient(to bottom, #000, transparent 85%); }
+html[data-uts-login-design="midnight-pro"] .lv-shapes i:nth-child(2){ width: 70%; height: 2px; background: linear-gradient(to right, transparent, #6f8cff, transparent); box-shadow: 0 0 18px #6f8cff, 0 0 40px rgb(99 102 241 / .6); inset-block-end: 30vmin; inset-inline-start: 0; }
+html[data-uts-login-design="midnight-pro"] .lv-shapes i:nth-child(3){ width: 26vmin; height: 26vmin; border-radius: 50%; border: 1px solid rgb(138 162 255 / .45); box-shadow: 0 0 30px rgb(79 70 229 / .45); inset-block-start: 10vmin; inset-inline-start: 40%; }
+html[data-uts-login-design="sandstone-premium"] .lv-shapes i:nth-child(1){ width: 40vmin; height: 40vmin; border-radius: 50% 50% 0 0; border: 1.5px solid rgb(241 213 164 / .45); border-bottom: 0; inset-block-end: -2vmin; inset-inline-start: -6vmin; }
+html[data-uts-login-design="sandstone-premium"] .lv-shapes i:nth-child(2){ width: 28vmin; height: 28vmin; border-radius: 50% 50% 0 0; border: 1.5px solid rgb(241 213 164 / .35); border-bottom: 0; inset-block-end: -2vmin; inset-inline-start: 0; }
+html[data-uts-login-design="sandstone-premium"] .lv-shapes i:nth-child(3){ width: 22vmin; height: 22vmin; border: 1.5px solid rgb(217 168 91 / .5); transform: rotate(45deg); inset-block-start: 8vmin; inset-inline-start: 40%; }

@@ -1,0 +1,8 @@
+{% import "parts.html" as p with context %}
+<table class="hd"><tr><td class="lft">{{ p.company() }}</td><td class="rgt">{{ p.title() }}</td></tr></table>
+<div style="height:12px"></div>
+{{ p.info('cards') }}
+{{ p.items() }}
+{{ p.bottom() }}
+{{ p.sig(True) }}
+{{ p.footer() }}

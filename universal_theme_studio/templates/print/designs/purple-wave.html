@@ -1,0 +1,9 @@
+{% import "parts.html" as p with context %}
+<div class="band"><table><tr><td>{{ p.company() }}</td><td class="c-end">{{ p.title() }}</td></tr></table></div>
+{% if ctx.deco %}<div class="wave-top">{{ p.wave('top') }}</div>{% endif %}
+{{ p.info() }}
+{{ p.items() }}
+{{ p.bottom() }}
+{{ p.sig(True) }}
+{% if ctx.deco %}<div class="wave-bot">{{ p.wave('bot') }}</div>{% endif %}
+{{ p.footer() }}

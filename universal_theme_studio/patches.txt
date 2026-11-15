@@ -1,0 +1,16 @@
+[pre_model_sync]
+universal_theme_studio.patches.v1_1.set_wallpaper_defaults
+
+[post_model_sync]
+universal_theme_studio.patches.v1_2.add_sidebar_options
+universal_theme_studio.patches.v1_3.set_welcome_defaults
+universal_theme_studio.patches.v1_4.add_mixed_themes
+universal_theme_studio.patches.v1_5.migrate_user_preferences
+universal_theme_studio.patches.v1_7.set_login_defaults
+universal_theme_studio.patches.v1_8.set_login_language_default
+universal_theme_studio.patches.v1_8.set_login_follow_default
+universal_theme_studio.patches.v1_8.create_print_studio
+universal_theme_studio.patches.v1_9.print_styles_and_arabic
+universal_theme_studio.patches.v1_9.add_business_classic
+universal_theme_studio.patches.v1_9.add_layout_designs
+universal_theme_studio.patches.v1_9.report_print_defaults

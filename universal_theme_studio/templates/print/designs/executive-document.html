@@ -1,0 +1,14 @@
+{% import "parts.html" as p with context %}
+<div class="top-rule"></div>
+<div style="position:relative">
+	{% if ctx.deco %}<div class="pat">{{ p.pattern() }}</div>{% endif %}
+	<table class="hd"><tr>
+		<td>{{ p.company() }}</td>
+		<td class="noboxwrap"><div class="doc-title">{{ p.L(ctx.title) }}{% if ctx.status %} <span style="font-size:.5em;font-weight:400">({{ p.LT(ctx.status) }})</span>{% endif %}</div><div class="no-box"><span class="num">{{ ctx.number }}</span></div></td>
+	</tr></table>
+</div>
+{{ p.info() }}
+{{ p.items() }}
+{{ p.bottom() }}
+{{ p.sig(True, True) }}
+{{ p.footer() }}

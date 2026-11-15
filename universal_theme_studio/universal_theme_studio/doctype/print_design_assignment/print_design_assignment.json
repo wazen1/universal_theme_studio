@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "creation": "2026-11-13 00:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "doc_type",
+  "design",
+  "make_default",
+  "previous_default"
+ ],
+ "fields": [
+  {
+   "fieldname": "doc_type",
+   "label": "DocType",
+   "fieldtype": "Link",
+   "options": "DocType",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 3
+  },
+  {
+   "fieldname": "design",
+   "label": "Design",
+   "fieldtype": "Select",
+   "options": "Use Default Design\nClassic Gold\nModern Blue\nElegant Teal\nPurple Wave\nExecutive Document\nCreative Corporate\nBusiness Classic\nInfo Card\nFull Band\nNumber Tile",
+   "default": "Use Default Design",
+   "in_list_view": 1,
+   "columns": 3
+  },
+  {
+   "fieldname": "make_default",
+   "label": "Default Print Format",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "columns": 2,
+   "description": "Make this the default print format of the DocType"
+  },
+  {
+   "fieldname": "previous_default",
+   "label": "Previous Default",
+   "fieldtype": "Data",
+   "read_only": 1,
+   "hidden": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-11-13 10:00:00",
+ "modified_by": "Administrator",
+ "module": "Universal Theme Studio",
+ "name": "Print Design Assignment",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

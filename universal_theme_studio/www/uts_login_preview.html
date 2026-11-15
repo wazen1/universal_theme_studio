@@ -1,0 +1,41 @@
+{% extends "templates/web.html" %}
+{% block navbar %}{% endblock %}
+{% block head_include %}{{ include_style('login.bundle.css') }}{% endblock %}
+{% block page_content %}
+<script>document.body.setAttribute("data-path", "login");</script>
+<div id="page-login" data-path="login">
+	<section class="for-login">
+		<div class="login-content page-card flex flex-col gap-5">
+			<div class="page-card-head flex flex-col items-start gap-4 text-left">
+				<img class="app-logo" src="{{ logo }}" alt="">
+				<div class="page-card-head-text flex flex-col gap-1.5 w-full">
+					<h4 class="text-3xl-bold text-ink-gray-9 w-full mt-0 mb-0">{{ _("Sign In") }}</h4>
+					<p class="page-card-subtitle text-p-base text-ink-gray-6 mb-0">{{ _("Welcome! Please sign in to continue.") }}</p>
+				</div>
+			</div>
+			<form class="form-signin form-login flex flex-col gap-8" role="form" novalidate onsubmit="return false">
+				<div class="page-card-body flex flex-col gap-4">
+					<div class="form-group flex flex-col items-start gap-1.5 mb-0">
+						<label class="text-base text-ink-gray-5 w-full mb-0" for="pv_email">{{ _("Email") }}</label>
+						<div class="email-field"><input type="text" id="pv_email" class="form-control" placeholder="{{ _('jane@example.com') }}" tabindex="-1"></div>
+					</div>
+					<div class="form-group flex flex-col items-start gap-2 mb-0">
+						<div class="flex flex-col items-start gap-1.5 w-full">
+							<label class="text-base text-ink-gray-5 w-full mb-0" for="pv_password">{{ _("Password") }}</label>
+							<div class="password-field">
+								<input type="password" id="pv_password" class="form-control" placeholder="••••••••" tabindex="-1">
+								<svg class="icon icon-sm toggle-password" xmlns="http://www.w3.org/2000/svg"><use href="#icon-eye"></use></svg>
+							</div>
+						</div>
+						<p class="text-lg text-right w-full mb-0"><a href="#" class="text-base text-ink-gray-5" tabindex="-1">{{ _("Forgot password?") }}</a></p>
+					</div>
+				</div>
+				<div class="page-card-actions flex flex-col gap-3">
+					<button class="es-button w-full" data-variant="solid" type="button" tabindex="-1">{{ _("Continue") }}</button>
+					<a href="#" class="es-button w-full btn-login-option btn-login-with-email-link" tabindex="-1">{{ _("Login with Email Link") }}</a>
+				</div>
+			</form>
+		</div>
+	</section>
+</div>
+{% endblock %}

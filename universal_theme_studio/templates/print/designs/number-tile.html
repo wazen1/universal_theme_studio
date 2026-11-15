@@ -1,0 +1,15 @@
+{% import "parts.html" as p with context %}
+<table class="hd"><tr>
+	<td class="lg">{% if ctx.company.logo %}<img class="logo" src="{{ ctx.company.logo }}" alt="">{% endif %}</td>
+	<td class="tile-c"><div class="tile"><div class="tt">{{ p.L(ctx.title) }}</div><b class="num">{{ ctx.number }}</b>{% if ctx.status %}<div class="tt">{{ p.LT(ctx.status) }}</div>{% endif %}</div></td>
+</tr></table>
+<table class="two"><tr>
+	<td class="pl">{{ p.co_block() }}</td>
+	<td class="pr">{{ p.party_plain() }}</td>
+</tr></table>
+{{ p.meta_band() }}
+{{ p.items() }}
+{{ p.bottom() }}
+{{ p.payments() }}
+{{ p.sig(False) }}
+{{ p.footer() }}

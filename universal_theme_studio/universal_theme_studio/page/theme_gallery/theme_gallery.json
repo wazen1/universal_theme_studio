@@ -1,0 +1,21 @@
+{
+ "content": null,
+ "creation": "2026-11-12 00:00:00",
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-11-12 20:30:00",
+ "modified_by": "Administrator",
+ "module": "Universal Theme Studio",
+ "name": "theme-gallery",
+ "owner": "Administrator",
+ "page_name": "theme-gallery",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "title": "Theme Studio"
+}

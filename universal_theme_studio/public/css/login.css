@@ -1,0 +1,83 @@
+/* Universal Theme Studio - login / website pages */
+html[data-uts-theme] .es-button:not([data-theme]),
+html[data-uts-theme] .es-button[data-theme="gray"]{
+	--bt-solid-bg: var(--uts-login-btn, var(--uts-p));
+	--bt-solid-bg-hover: var(--uts-p-hover);
+	--bt-solid-bg-active: var(--uts-p-hover);
+	--bt-solid-fg: var(--uts-on-primary);
+	--bt-fill-bg: var(--uts-primary-soft);
+	--bt-fill-bg-hover: var(--uts-hover);
+	--bt-fg: var(--ink-gray-8);
+	--bt-border: var(--uts-border-strong);
+}
+html[data-uts-theme] .es-button{ border-radius: var(--uts-r-sm, 6px); font-weight: 600; min-height: 38px; transition: background .15s, box-shadow .15s, transform .05s; }
+html[data-uts-theme] .es-button:focus-visible{ box-shadow: var(--focus-default); outline: none; }
+html[data-uts-theme] .es-button:active{ transform: translateY(1px); }
+
+/* Backdrop */
+html[data-uts-theme] body[data-path="login"]{ background: transparent; min-height: 100vh; position: relative; }
+html[data-uts-theme] body[data-path="login"]::before{
+	content: ""; position: fixed; inset: 0; z-index: -2;
+	background:
+		var(--uts-login-image, none) center / cover no-repeat,
+		var(--uts-login-bg, var(--uts-hero));
+}
+html[data-uts-theme] body[data-path="login"]::after{
+	content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+	background:
+		radial-gradient(60% 60% at 15% 10%, color-mix(in srgb, var(--uts-a) 28%, transparent), transparent 70%),
+		radial-gradient(50% 50% at 90% 90%, color-mix(in srgb, var(--uts-p) 30%, transparent), transparent 70%),
+		linear-gradient(rgb(0 0 0 / var(--uts-login-overlay, .35)), rgb(0 0 0 / var(--uts-login-overlay, .35)));
+}
+html[data-uts-theme] body[data-path="login"] .page-content-wrapper,
+html[data-uts-theme] body[data-path="login"] main.container,
+html[data-uts-theme] body[data-path="login"] .page_content{ background: transparent; }
+
+/* Card */
+html[data-uts-theme] body[data-path="login"] .page-card,
+html[data-uts-theme] body[data-path="login"] .login-content{
+	background: var(--uts-login-card, var(--uts-surface));
+	color: var(--ink-gray-9);
+	border: 1px solid color-mix(in srgb, var(--uts-surface) 40%, var(--border-color));
+	border-radius: var(--uts-r-lg, 14px);
+	box-shadow: var(--uts-shadow-3);
+	padding: 36px 34px;
+	max-width: 440px; width: 100%;
+	margin-inline: auto;
+}
+html[data-uts-theme] body[data-path="login"] .page-card .app-logo{
+	height: 52px; width: auto; max-width: 180px; object-fit: contain; border-radius: var(--uts-r-sm, 6px);
+}
+html[data-uts-theme] body[data-path="login"] .page-card h4{ font-size: 1.6rem; font-weight: 700; letter-spacing: -.01em; }
+html[data-uts-theme] body[data-path="login"] .form-control{
+	background: var(--uts-subtle); border: 1px solid var(--uts-border-strong); border-radius: var(--uts-r-sm, 6px);
+	height: 42px; padding-inline: 12px; color: var(--ink-gray-9);
+}
+html[data-uts-theme] body[data-path="login"] .form-control:focus{
+	border-color: var(--uts-p); box-shadow: var(--focus-default); background: var(--uts-surface); outline: none;
+}
+html[data-uts-theme] body[data-path="login"] .page-card a{ color: var(--uts-p); }
+html[data-uts-theme] body[data-path="login"] .page-card a:hover{ color: var(--uts-p-hover); }
+html[data-uts-theme] body[data-path="login"] .web-footer{ background: transparent; color: rgb(255 255 255 / .8); }
+
+/* Split layouts: card becomes a full-height side panel */
+@media (min-width: 900px){
+	html[data-uts-login-layout="left"] body[data-path="login"] section[class^="for-"],
+	html[data-uts-login-layout="right"] body[data-path="login"] section[class^="for-"]{
+		position: fixed; inset-block: 0; width: min(520px, 42vw); margin: 0; padding: 0; display: flex; align-items: center;
+		background: var(--uts-login-card, var(--uts-surface)); box-shadow: var(--uts-shadow-3); z-index: 2;
+	}
+	html[data-uts-login-layout="left"] body[data-path="login"] section[class^="for-"]{ inset-inline-start: 0; }
+	html[data-uts-login-layout="right"] body[data-path="login"] section[class^="for-"]{ inset-inline-end: 0; }
+	html[data-uts-login-layout="left"] body[data-path="login"] section[class^="for-"] .page-card,
+	html[data-uts-login-layout="right"] body[data-path="login"] section[class^="for-"] .page-card{
+		box-shadow: none; border: 0; background: transparent; padding: 40px;
+	}
+}
+@media (max-width: 575px){
+	html[data-uts-theme] body[data-path="login"] .page-card{ padding: 26px 20px; border-radius: var(--uts-r-md, 10px); }
+}
+/* Arabic */
+html[dir="rtl"] body[data-path="login"] .page-card{ text-align: right; }
+html[dir="rtl"] body[data-path="login"] .page-card .page-card-head{ text-align: right; }
+@media (prefers-reduced-motion: reduce){ html[data-uts-theme] *{ transition: none !important; } }

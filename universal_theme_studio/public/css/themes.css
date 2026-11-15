@@ -1,0 +1,268 @@
+/* Universal Theme Studio - generated palette. Edit tools/gen or tweak here. */
+[data-uts-theme="fiori-blue"]:not([data-uts-mode="dark"]){--uts-font:'UTS IBM Plex Sans Arabic',system-ui,sans-serif;--gray-50:#f5f6f7;--gray-100:#eaecee;--gray-200:#dde0e3;--gray-300:#c6cbd0;--gray-400:#a9b0b7;--gray-500:#8a929a;--gray-600:#6a737c;--gray-700:#515a63;--gray-800:#32363a;--gray-900:#1d2329;--gray-950:#12161a;--uts-primary:#0a6ed1;--uts-primary-hover:#0854a0;--uts-primary-soft:#e5f0fa;--uts-on-primary:#ffffff;--uts-accent:#e9730c;--uts-page:#f5f6f7;--uts-surface:#ffffff;--uts-nav:#ffffff;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#0a4f9c 0%,#0a6ed1 55%,#4aa3f0 100%);--uts-border:#dde0e3;--uts-grad-a:#0a6ed1;}
+[data-uts-theme="fiori-blue"][data-uts-mode="dark"]{--gray-50:#dfe5eb;--gray-100:#c3ccd5;--gray-200:#a2aeba;--gray-300:#8795a3;--gray-400:#6a7886;--gray-500:#505d6a;--gray-600:#3a4651;--gray-700:#2b353f;--gray-800:#202830;--gray-900:#171d23;--gray-950:#0f1418;--uts-primary:#58b4ff;--uts-primary-hover:#8accff;--uts-primary-soft:#12304a;--uts-on-primary:#06223a;--uts-accent:#ffa24d;--uts-page:#0f1418;--uts-surface:#171d23;--uts-nav:#171d23;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#071a2e 0%,#0b3a66 60%,#1676c8 100%);--uts-border:#a2aeba;--uts-grad-a:#58b4ff;}
+[data-uts-theme="redwood-purple"]:not([data-uts-mode="dark"]){--uts-font:'UTS Cairo',system-ui,sans-serif;--gray-50:#f7f4f2;--gray-100:#eeeae6;--gray-200:#e2dcd7;--gray-300:#cdc5be;--gray-400:#b0a79f;--gray-500:#91877e;--gray-600:#6f665e;--gray-700:#554d46;--gray-800:#3a332d;--gray-900:#251f1b;--gray-950:#161210;--uts-primary:#6b3fa0;--uts-primary-hover:#502a7e;--uts-primary-soft:#f0e9f8;--uts-on-primary:#ffffff;--uts-accent:#c74634;--uts-page:#f7f4f2;--uts-surface:#ffffff;--uts-nav:#2b1a3f;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#2b1a3f 0%,#5a3487 55%,#c74634 130%);--uts-border:#e2dcd7;--uts-grad-a:#6b3fa0;}
+[data-uts-theme="redwood-purple"][data-uts-mode="dark"]{--gray-50:#e6dcee;--gray-100:#cfc0dc;--gray-200:#b3a0c6;--gray-300:#9783ad;--gray-400:#7b6894;--gray-500:#61507a;--gray-600:#483b5c;--gray-700:#352b45;--gray-800:#271f33;--gray-900:#1d1727;--gray-950:#130f1a;--uts-primary:#c3a1ee;--uts-primary-hover:#dcc6f6;--uts-primary-soft:#30214a;--uts-on-primary:#1d0f33;--uts-accent:#ff8b77;--uts-page:#130f1a;--uts-surface:#1d1727;--uts-nav:#1d1727;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#130f1a 0%,#3a2360 60%,#8c4a7c 120%);--uts-border:#b3a0c6;--uts-grad-a:#c3a1ee;}
+[data-uts-theme="emerald-modern"]:not([data-uts-mode="dark"]){--uts-font:'UTS Tajawal',system-ui,sans-serif;--gray-50:#f2f7f5;--gray-100:#e5eeea;--gray-200:#d4e2dc;--gray-300:#b9cdc4;--gray-400:#98b2a6;--gray-500:#78948a;--gray-600:#587368;--gray-700:#425a51;--gray-800:#2c4038;--gray-900:#172a24;--gray-950:#0c1814;--uts-primary:#047857;--uts-primary-hover:#065f46;--uts-primary-soft:#dcf3ea;--uts-on-primary:#ffffff;--uts-accent:#d97706;--uts-page:#f2f7f5;--uts-surface:#ffffff;--uts-nav:#ffffff;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#064e3b 0%,#047857 55%,#34d399 130%);--uts-border:#d4e2dc;--uts-grad-a:#047857;}
+[data-uts-theme="emerald-modern"][data-uts-mode="dark"]{--gray-50:#d7f0e6;--gray-100:#b3e0cf;--gray-200:#8cccb4;--gray-300:#69b49a;--gray-400:#4d9980;--gray-500:#3b7a66;--gray-600:#2c5d4d;--gray-700:#204538;--gray-800:#17342b;--gray-900:#0f241d;--gray-950:#09160f;--uts-primary:#4ade9c;--uts-primary-hover:#86efbd;--uts-primary-soft:#12382b;--uts-on-primary:#04281b;--uts-accent:#fbbf24;--uts-page:#09160f;--uts-surface:#0f241d;--uts-nav:#0f241d;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#04140d 0%,#0b3d2c 60%,#0f8a62 130%);--uts-border:#8cccb4;--uts-grad-a:#4ade9c;}
+[data-uts-theme="midnight-pro"]:not([data-uts-mode="dark"]){--uts-font:'UTS IBM Plex Sans Arabic',system-ui,sans-serif;--gray-50:#f3f5f9;--gray-100:#e8ebf2;--gray-200:#d9deea;--gray-300:#c0c8da;--gray-400:#a0abc3;--gray-500:#808ca8;--gray-600:#5f6b88;--gray-700:#475270;--gray-800:#2f3853;--gray-900:#1c2339;--gray-950:#0f1424;--uts-primary:#4f46e5;--uts-primary-hover:#3f37c9;--uts-primary-soft:#e8e7fc;--uts-on-primary:#ffffff;--uts-accent:#06b6d4;--uts-page:#f3f5f9;--uts-surface:#ffffff;--uts-nav:#0f1424;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#0f1424 0%,#2a2f7a 60%,#4f46e5 130%);--uts-border:#d9deea;--uts-grad-a:#4f46e5;}
+[data-uts-theme="midnight-pro"][data-uts-mode="dark"]{--gray-50:#d9dff3;--gray-100:#bcc6e6;--gray-200:#97a5d3;--gray-300:#7787bd;--gray-400:#5b6ba3;--gray-500:#465486;--gray-600:#34406b;--gray-700:#252f53;--gray-800:#1b2340;--gray-900:#131a30;--gray-950:#0b1020;--uts-primary:#8b93ff;--uts-primary-hover:#b3b8ff;--uts-primary-soft:#222a5c;--uts-on-primary:#0b1030;--uts-accent:#22d3ee;--uts-page:#0b1020;--uts-surface:#131a30;--uts-nav:#0b1020;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#070b18 0%,#1a2160 60%,#4f46e5 140%);--uts-border:#97a5d3;--uts-grad-a:#8b93ff;}
+[data-uts-theme="sandstone-premium"]:not([data-uts-mode="dark"]){--uts-font:'UTS Tajawal',system-ui,sans-serif;--gray-50:#f7f2e9;--gray-100:#eee6d8;--gray-200:#e3d8c5;--gray-300:#cfc0a6;--gray-400:#b4a285;--gray-500:#978468;--gray-600:#766551;--gray-700:#5a4b3b;--gray-800:#3d3126;--gray-900:#2a2018;--gray-950:#18110b;--uts-primary:#8f5f1d;--uts-primary-hover:#744a12;--uts-primary-soft:#f6ead6;--uts-on-primary:#ffffff;--uts-accent:#2f6f6a;--uts-page:#f7f2e9;--uts-surface:#fffdf9;--uts-nav:#fffdf9;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#3d2a14 0%,#8f5f1d 60%,#d9a85b 130%);--uts-border:#e3d8c5;--uts-grad-a:#8f5f1d;}
+[data-uts-theme="sandstone-premium"][data-uts-mode="dark"]{--gray-50:#ebdfca;--gray-100:#d6c4a5;--gray-200:#bda780;--gray-300:#a38c66;--gray-400:#86704e;--gray-500:#6a563b;--gray-600:#51402c;--gray-700:#3b2e20;--gray-800:#2b2118;--gray-900:#201911;--gray-950:#15100a;--uts-primary:#e0b266;--uts-primary-hover:#efca8e;--uts-primary-soft:#43321a;--uts-on-primary:#2a1c08;--uts-accent:#6fc2bb;--uts-page:#15100a;--uts-surface:#201911;--uts-nav:#201911;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#15100a 0%,#4a3417 60%,#a8742a 130%);--uts-border:#bda780;--uts-grad-a:#e0b266;}
+
+/* ---------------------------------------------------------------
+   Token mapping: --uts-* palette -> Frappe semantic tokens.
+   Applies to desk, login and website, in light and dark.
+---------------------------------------------------------------- */
+html[data-uts-theme]{
+	--uts-p: var(--uts-primary-override, var(--uts-primary));
+	--uts-p-hover: var(--uts-primary-override, var(--uts-primary-hover));
+	--uts-a: var(--uts-accent-override, var(--uts-accent));
+	--uts-s: var(--uts-secondary-override, var(--uts-secondary, var(--uts-a)));
+	--uts-glass-k: var(--uts-glass-k-set, 1);
+	--uts-ring: color-mix(in srgb, var(--uts-p) 35%, transparent);
+	--uts-shadow-1: 0 1px 2px rgb(16 24 40 / .06), 0 1px 3px rgb(16 24 40 / .08);
+	--uts-shadow-2: 0 4px 12px rgb(16 24 40 / .08), 0 2px 4px rgb(16 24 40 / .06);
+	--uts-shadow-3: 0 16px 40px rgb(16 24 40 / .16);
+
+	--primary: var(--uts-p);
+	--primary-color: var(--uts-p);
+	--btn-primary: var(--uts-p);
+	--ink-blue-link: var(--uts-p);
+	--bg-color: var(--uts-page);
+	--fg-color: var(--uts-surface);
+	--card-bg: var(--uts-surface);
+	--surface-base: var(--uts-surface);
+	--surface-modal: var(--uts-surface);
+	--navbar-bg: var(--uts-surface);
+	--surface-sidebar: var(--uts-surface);
+	--sidebar-select-color: var(--uts-primary-soft);
+	--uts-subtle: var(--gray-50);
+	--uts-hover: var(--gray-100);
+	--uts-border-strong: var(--gray-300);
+	--control-bg: var(--gray-50);
+	--btn-default-bg: var(--gray-100);
+	--fg-hover-color: var(--gray-50);
+	--border-color: var(--gray-200);
+	--font-stack: var(--uts-font-override, var(--uts-font));
+	--border-radius: var(--uts-r-sm, 6px);
+	--border-radius-sm: var(--uts-r-sm, 6px);
+	--border-radius-md: var(--uts-r-md, 10px);
+	--border-radius-lg: var(--uts-r-lg, 14px);
+	--radius: var(--uts-r-sm, 6px);
+	--radius-md: var(--uts-r-md, 10px);
+	--radius-lg: var(--uts-r-lg, 14px);
+	--card-shadow: var(--uts-shadow-1);
+	--modal-shadow: var(--uts-shadow-3);
+	--focus-default: 0 0 0 3px var(--uts-ring);
+	font-size: var(--uts-font-size, 14px);
+	accent-color: var(--uts-p);
+}
+html[data-uts-theme][data-uts-mode="dark"]{
+	--uts-subtle: var(--gray-900);
+	--uts-hover: var(--gray-800);
+	--uts-border-strong: var(--gray-700);
+	--control-bg: var(--gray-800);
+	--btn-default-bg: var(--gray-800);
+	--fg-hover-color: var(--gray-800);
+	--border-color: var(--gray-800);
+	--uts-shadow-1: 0 1px 2px rgb(0 0 0 / .35);
+	--uts-shadow-2: 0 4px 14px rgb(0 0 0 / .4);
+	--uts-shadow-3: 0 18px 44px rgb(0 0 0 / .55);
+	color-scheme: dark;
+}
+html[data-uts-theme] body,
+html[data-uts-theme] .form-control,
+html[data-uts-theme] .btn,
+html[data-uts-theme] input,
+html[data-uts-theme] select,
+html[data-uts-theme] textarea{
+	font-family: var(--uts-font-override, var(--uts-font));
+}
+/* Arabic / RTL: slightly looser leading for connected script */
+html[dir="rtl"][data-uts-theme] body{ line-height: 1.65; letter-spacing: 0; }
+html[dir="rtl"][data-uts-theme] .btn,
+html[dir="rtl"][data-uts-theme] label,
+html[dir="rtl"][data-uts-theme] .control-label{ letter-spacing: 0 !important; }
+
+/* ERPNext's bundle forces Cairo with !important for lang=ar ("set_arabic_font").
+   The chosen theme/font setting should win, so repeat with higher specificity. */
+html[lang="ar"][data-uts-theme]{
+	--font-stack: var(--uts-font-override, var(--uts-font)) !important;
+	font-size: calc(var(--uts-font-size, 14px) + 1px);
+}
+html[lang="ar"][data-uts-theme] body,
+html[lang="ar"][data-uts-theme] h1, html[lang="ar"][data-uts-theme] h2, html[lang="ar"][data-uts-theme] h3,
+html[lang="ar"][data-uts-theme] h4, html[lang="ar"][data-uts-theme] h5, html[lang="ar"][data-uts-theme] h6,
+html[lang="ar"][data-uts-theme] .form-label, html[lang="ar"][data-uts-theme] .control-label,
+html[lang="ar"][data-uts-theme] .btn, html[lang="ar"][data-uts-theme] .es-button{
+	font-family: var(--uts-font-override, var(--uts-font)) !important;
+}
+html[lang="ar"][data-uts-theme] .form-control,
+html[lang="ar"][data-uts-theme] .input-with-feedback{
+	font-family: var(--uts-font-override, var(--uts-font)) !important;
+	font-size: 14px !important;
+}
+
+/* Per-theme font (mode independent; the palette blocks above are per mode) */
+[data-uts-theme="fiori-blue"], [data-uts-theme="midnight-pro"]{ --uts-font: 'UTS IBM Plex Sans Arabic', system-ui, sans-serif; }
+[data-uts-theme="redwood-purple"]{ --uts-font: 'UTS Cairo', system-ui, sans-serif; }
+[data-uts-theme="emerald-modern"], [data-uts-theme="sandstone-premium"]{ --uts-font: 'UTS Tajawal', system-ui, sans-serif; }
+
+/* ===== v1.4 additions: six mixed-colour themes (palette blocks mirror the original five) ===== */
+[data-uts-theme="ocean-breeze"]:not([data-uts-mode="dark"]){--gray-50:#f3f5f7;--gray-100:#e7ebef;--gray-200:#d7dfe4;--gray-300:#bcc9d2;--gray-400:#9aaebc;--gray-500:#7590a3;--gray-600:#587184;--gray-700:#435765;--gray-800:#2d3a43;--gray-900:#1d252b;--gray-950:#101518;--uts-primary:#1d4ed8;--uts-primary-hover:#1e40af;--uts-primary-soft:#e0ecff;--uts-on-primary:#ffffff;--uts-accent:#06b6d4;--uts-secondary:#14b8a6;--uts-page:#eff6fb;--uts-surface:#ffffff;--uts-nav:#ffffff;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#0b3a8c 0%,#1d4ed8 55%,#14b8a6 100%);--uts-border:#d7dfe4;--uts-grad-a:#1d4ed8;}
+[data-uts-theme="ocean-breeze"][data-uts-mode="dark"]{--gray-50:#e8eef3;--gray-100:#d1dde6;--gray-200:#afc5d4;--gray-300:#8eadc2;--gray-400:#6d94b0;--gray-500:#547e9c;--gray-600:#44667e;--gray-700:#365063;--gray-800:#293e4c;--gray-900:#1e2e38;--gray-950:#152028;--uts-primary:#60a5fa;--uts-primary-hover:#93c5fd;--uts-primary-soft:#12284a;--uts-on-primary:#07182f;--uts-accent:#22d3ee;--uts-secondary:#2dd4bf;--uts-page:#07141f;--uts-surface:#0e1e2e;--uts-nav:#0e1e2e;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#04101c 0%,#0b3a7a 55%,#0f8f9a 100%);--uts-border:#afc5d4;--uts-grad-a:#60a5fa;}
+[data-uts-theme="sunset-fusion"]:not([data-uts-mode="dark"]){--gray-50:#f6f4f3;--gray-100:#eeeae7;--gray-200:#e3dcd9;--gray-300:#d0c4be;--gray-400:#b8a69d;--gray-500:#9f867a;--gray-600:#7f685c;--gray-700:#625047;--gray-800:#41352f;--gray-900:#29221e;--gray-950:#181311;--uts-primary:#c2410c;--uts-primary-hover:#9a3412;--uts-primary-soft:#ffe9dc;--uts-on-primary:#ffffff;--uts-accent:#7c3aed;--uts-secondary:#db2777;--uts-page:#fff6f1;--uts-surface:#fffdfb;--uts-nav:#fffdfb;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#c2410c 0%,#db2777 55%,#7c3aed 100%);--uts-border:#e3dcd9;--uts-grad-a:#c2410c;}
+[data-uts-theme="sunset-fusion"][data-uts-mode="dark"]{--gray-50:#f1ece9;--gray-100:#e3d9d3;--gray-200:#cfbdb4;--gray-300:#bba295;--gray-400:#a78776;--gray-500:#926f5d;--gray-600:#765a4c;--gray-700:#5d473c;--gray-800:#48362e;--gray-900:#352822;--gray-950:#251c18;--uts-primary:#fb923c;--uts-primary-hover:#fdba74;--uts-primary-soft:#3a1c10;--uts-on-primary:#2b1203;--uts-accent:#c084fc;--uts-secondary:#f472b6;--uts-page:#180e14;--uts-surface:#231519;--uts-nav:#231519;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#2a0f1a 0%,#7a1f4f 55%,#5b21b6 100%);--uts-border:#cfbdb4;--uts-grad-a:#fb923c;}
+[data-uts-theme="forest-harmony"]:not([data-uts-mode="dark"]){--gray-50:#f5f6f4;--gray-100:#eaece9;--gray-200:#dde1db;--gray-300:#c6ccc2;--gray-400:#aab2a3;--gray-500:#8b9782;--gray-600:#6c7864;--gray-700:#535c4d;--gray-800:#373d33;--gray-900:#232720;--gray-950:#141613;--uts-primary:#166534;--uts-primary-hover:#14532d;--uts-primary-soft:#e2f1e4;--uts-on-primary:#ffffff;--uts-accent:#a16207;--uts-secondary:#84cc16;--uts-page:#f6f2e7;--uts-surface:#fffdf6;--uts-nav:#fffdf6;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#14532d 0%,#166534 55%,#65a30d 100%);--uts-border:#dde1db;--uts-grad-a:#166534;}
+[data-uts-theme="forest-harmony"][data-uts-mode="dark"]{--gray-50:#edf0ea;--gray-100:#dae2d5;--gray-200:#c0cdb7;--gray-300:#a6b899;--gray-400:#8ba37b;--gray-500:#748d62;--gray-600:#5e724f;--gray-700:#4a5a3f;--gray-800:#394530;--gray-900:#2a3324;--gray-950:#1e2419;--uts-primary:#a3e635;--uts-primary-hover:#bef264;--uts-primary-soft:#22320f;--uts-on-primary:#12200a;--uts-accent:#d6c28f;--uts-secondary:#4ade80;--uts-page:#0c150f;--uts-surface:#121e15;--uts-nav:#121e15;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#07130b 0%,#14532d 55%,#4d7c0f 100%);--uts-border:#c0cdb7;--uts-grad-a:#a3e635;}
+[data-uts-theme="royal-indigo"]:not([data-uts-mode="dark"]){--gray-50:#f4f3f6;--gray-100:#e9e8ed;--gray-200:#dbd9e2;--gray-300:#c2bfcf;--gray-400:#a39fb7;--gray-500:#827c9c;--gray-600:#635e7d;--gray-700:#4c4860;--gray-800:#333040;--gray-900:#201f29;--gray-950:#121217;--uts-primary:#4338ca;--uts-primary-hover:#3730a3;--uts-primary-soft:#e9e7fd;--uts-on-primary:#ffffff;--uts-accent:#f472b6;--uts-secondary:#7c3aed;--uts-page:#f5f3ff;--uts-surface:#ffffff;--uts-nav:#ffffff;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#312e81 0%,#4f46e5 55%,#c084fc 100%);--uts-border:#dbd9e2;--uts-grad-a:#4338ca;}
+[data-uts-theme="royal-indigo"][data-uts-mode="dark"]{--gray-50:#eae9f2;--gray-100:#d5d2e5;--gray-200:#b7b2d2;--gray-300:#9992bf;--gray-400:#7b72ac;--gray-500:#635997;--gray-600:#50487a;--gray-700:#3f3960;--gray-800:#302b4a;--gray-900:#242037;--gray-950:#191727;--uts-primary:#a5b4fc;--uts-primary-hover:#c7d2fe;--uts-primary-soft:#25214f;--uts-on-primary:#14113a;--uts-accent:#f9a8d4;--uts-secondary:#c4b5fd;--uts-page:#0f0c24;--uts-surface:#171335;--uts-nav:#171335;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#0b0820 0%,#2e2a7a 55%,#7e3fbf 100%);--uts-border:#b7b2d2;--uts-grad-a:#a5b4fc;}
+[data-uts-theme="modern-teal"]:not([data-uts-mode="dark"]){--gray-50:#f3f6f6;--gray-100:#e8eded;--gray-200:#d9e2e2;--gray-300:#bfcdcf;--gray-400:#9fb5b7;--gray-500:#7c9a9c;--gray-600:#5e7a7d;--gray-700:#485e60;--gray-800:#303f40;--gray-900:#1f2829;--gray-950:#121717;--uts-primary:#0f766e;--uts-primary-hover:#115e59;--uts-primary-soft:#d9f2ee;--uts-on-primary:#ffffff;--uts-accent:#64748b;--uts-secondary:#06b6d4;--uts-page:#f1f5f7;--uts-surface:#ffffff;--uts-nav:#ffffff;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#134e4a 0%,#0f766e 55%,#06b6d4 100%);--uts-border:#d9e2e2;--uts-grad-a:#0f766e;}
+[data-uts-theme="modern-teal"][data-uts-mode="dark"]{--gray-50:#e9f1f1;--gray-100:#d3e2e4;--gray-200:#b3ced0;--gray-300:#93babd;--gray-400:#74a5aa;--gray-500:#5b9095;--gray-600:#4a7478;--gray-700:#3a5c5f;--gray-800:#2d4649;--gray-900:#213436;--gray-950:#172526;--uts-primary:#2dd4bf;--uts-primary-hover:#5eead4;--uts-primary-soft:#0f302e;--uts-on-primary:#04211f;--uts-accent:#94a3b8;--uts-secondary:#22d3ee;--uts-page:#071417;--uts-surface:#0e1d21;--uts-nav:#0e1d21;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#04181a 0%,#0b4a47 55%,#0e7490 100%);--uts-border:#b3ced0;--uts-grad-a:#2dd4bf;}
+[data-uts-theme="carbon-pro"]:not([data-uts-mode="dark"]){--gray-50:#f4f5f5;--gray-100:#e9eaec;--gray-200:#dcdde0;--gray-300:#c4c6ca;--gray-400:#a6a9b0;--gray-500:#858a93;--gray-600:#676b74;--gray-700:#4f5259;--gray-800:#35373b;--gray-900:#222326;--gray-950:#131416;--uts-primary:#2563eb;--uts-primary-hover:#1d4ed8;--uts-primary-soft:#e3ecff;--uts-on-primary:#ffffff;--uts-accent:#94a3b8;--uts-secondary:#38bdf8;--uts-page:#eef0f3;--uts-surface:#ffffff;--uts-nav:#ffffff;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#0c0d10 0%,#1b1f27 55%,#2563eb 100%);--uts-border:#dcdde0;--uts-grad-a:#2563eb;}
+[data-uts-theme="carbon-pro"][data-uts-mode="dark"]{--gray-50:#ecedef;--gray-100:#d8dade;--gray-200:#bdc0c7;--gray-300:#a1a6af;--gray-400:#868c98;--gray-500:#6e7581;--gray-600:#595e69;--gray-700:#464a53;--gray-800:#36393f;--gray-900:#282a2f;--gray-950:#1c1e21;--uts-primary:#4d8dff;--uts-primary-hover:#8ab4ff;--uts-primary-soft:#16233f;--uts-on-primary:#06142e;--uts-accent:#cbd5e1;--uts-secondary:#38bdf8;--uts-page:#0b0c0f;--uts-surface:#14161b;--uts-nav:#14161b;--uts-hero:linear-gradient(var(--uts-gdir,135deg),#050608 0%,#14171d 55%,#1d4ed8 100%);--uts-border:#bdc0c7;--uts-grad-a:#4d8dff;}
+[data-uts-theme="ocean-breeze"], [data-uts-theme="carbon-pro"]{ --uts-font: 'UTS IBM Plex Sans Arabic', system-ui, sans-serif; }
+[data-uts-theme="sunset-fusion"], [data-uts-theme="royal-indigo"]{ --uts-font: 'UTS Cairo', system-ui, sans-serif; }
+[data-uts-theme="forest-harmony"], [data-uts-theme="modern-teal"]{ --uts-font: 'UTS Tajawal', system-ui, sans-serif; }
+
+/* ===== v1.5: per-role fonts. uts.js sets --uts-f-heading/table/form (and --uts-font-override for the interface);
+   an unset role follows the interface font, so the look is unchanged until someone chooses. ===== */
+html[data-uts-theme]{ --uts-f-ui: var(--uts-font-override, var(--uts-font)); }
+html[data-uts-theme] h1,
+html[data-uts-theme] h2,
+html[data-uts-theme] h3,
+html[data-uts-theme] h4,
+html[data-uts-theme] h5,
+html[data-uts-theme] h6,
+html[data-uts-theme] .page-title .title-text,
+html[data-uts-theme] .modal-title,
+html[data-uts-theme] .section-head,
+html[data-uts-theme] .card-title,
+html[data-uts-theme] .widget,
+html[data-uts-theme] .widget .widget-title,
+html[data-uts-theme] .widget-head .widget-title,
+html[data-uts-theme] .number-widget-box,
+html[data-uts-theme] .shortcut-widget-box,
+html[data-uts-theme] .links-widget-box,
+html[data-uts-theme] .desktop-icon .icon-title,
+html[data-uts-theme] .sidebar-header .header-title,
+html[data-uts-theme] .uts-greet-text,
+html[data-uts-theme] .uts-weekday,
+html[data-uts-theme] .uts-gallery-h,
+html[data-uts-theme] .uts-card-meta strong{ font-family: var(--uts-f-heading, var(--uts-f-ui)); }
+html[data-uts-theme] .form-layout .form-control,
+html[data-uts-theme] .form-layout .control-label,
+html[data-uts-theme] .frappe-control .control-label,
+html[data-uts-theme] .frappe-control .form-control,
+html[data-uts-theme] .frappe-control input,
+html[data-uts-theme] .frappe-control textarea,
+html[data-uts-theme] .frappe-control select,
+html[data-uts-theme] .frappe-control .control-value,
+html[data-uts-theme] .like-disabled-input,
+html[data-uts-theme] .awesomplete input,
+html[data-uts-theme] .ql-editor,
+html[data-uts-theme] .modal .form-control,
+html[data-uts-theme] .modal .control-label,
+html[data-uts-theme] .standard-filter-section .form-control,
+html[data-uts-theme] .uts-fm-form{ font-family: var(--uts-f-form, var(--uts-f-ui)); }
+html[data-uts-theme] .list-row,
+html[data-uts-theme] .list-row-head,
+html[data-uts-theme] .list-row-container,
+html[data-uts-theme] .result,
+html[data-uts-theme] .frappe-list .list-row-col,
+html[data-uts-theme] .list-paging-area,
+html[data-uts-theme] .form-grid,
+html[data-uts-theme] .form-grid .grid-row,
+html[data-uts-theme] .grid-heading-row,
+html[data-uts-theme] .grid-static-col,
+html[data-uts-theme] .grid-body,
+html[data-uts-theme] .datatable,
+html[data-uts-theme] .dt-cell,
+html[data-uts-theme] .dt-cell__content,
+html[data-uts-theme] .dt-header,
+html[data-uts-theme] .report-wrapper,
+html[data-uts-theme] .dt-scrollable,
+html[data-uts-theme] table,
+html[data-uts-theme] .table,
+html[data-uts-theme] .tree-link,
+html[data-uts-theme] .form-grid .form-control,
+html[data-uts-theme] .form-grid .frappe-control .form-control,
+html[data-uts-theme] .form-grid .frappe-control input,
+html[data-uts-theme] .form-grid .frappe-control select,
+html[data-uts-theme] .grid-row .static-area,
+html[data-uts-theme] .dt-cell input,
+html[data-uts-theme] .uts-fm-table,
+html[data-uts-theme] .uts-fm-table td,
+html[data-uts-theme] .uts-fm-table th{ font-family: var(--uts-f-table, var(--uts-f-ui)); }
+/* Arabic: ERPNext forces Cairo with !important for lang=ar (set_arabic_font), so repeat with the same weight */
+html[lang="ar"][data-uts-theme] h1,
+html[lang="ar"][data-uts-theme] h2,
+html[lang="ar"][data-uts-theme] h3,
+html[lang="ar"][data-uts-theme] h4,
+html[lang="ar"][data-uts-theme] h5,
+html[lang="ar"][data-uts-theme] h6,
+html[lang="ar"][data-uts-theme] .page-title .title-text,
+html[lang="ar"][data-uts-theme] .modal-title,
+html[lang="ar"][data-uts-theme] .section-head,
+html[lang="ar"][data-uts-theme] .card-title,
+html[lang="ar"][data-uts-theme] .widget,
+html[lang="ar"][data-uts-theme] .widget .widget-title,
+html[lang="ar"][data-uts-theme] .widget-head .widget-title,
+html[lang="ar"][data-uts-theme] .number-widget-box,
+html[lang="ar"][data-uts-theme] .shortcut-widget-box,
+html[lang="ar"][data-uts-theme] .links-widget-box,
+html[lang="ar"][data-uts-theme] .desktop-icon .icon-title,
+html[lang="ar"][data-uts-theme] .sidebar-header .header-title,
+html[lang="ar"][data-uts-theme] .uts-greet-text,
+html[lang="ar"][data-uts-theme] .uts-weekday,
+html[lang="ar"][data-uts-theme] .uts-gallery-h,
+html[lang="ar"][data-uts-theme] .uts-card-meta strong{ font-family: var(--uts-f-heading, var(--uts-f-ui)) !important; }
+html[lang="ar"][data-uts-theme] .form-layout .form-control,
+html[lang="ar"][data-uts-theme] .form-layout .control-label,
+html[lang="ar"][data-uts-theme] .frappe-control .control-label,
+html[lang="ar"][data-uts-theme] .frappe-control .form-control,
+html[lang="ar"][data-uts-theme] .frappe-control input,
+html[lang="ar"][data-uts-theme] .frappe-control textarea,
+html[lang="ar"][data-uts-theme] .frappe-control select,
+html[lang="ar"][data-uts-theme] .frappe-control .control-value,
+html[lang="ar"][data-uts-theme] .like-disabled-input,
+html[lang="ar"][data-uts-theme] .awesomplete input,
+html[lang="ar"][data-uts-theme] .ql-editor,
+html[lang="ar"][data-uts-theme] .modal .form-control,
+html[lang="ar"][data-uts-theme] .modal .control-label,
+html[lang="ar"][data-uts-theme] .standard-filter-section .form-control,
+html[lang="ar"][data-uts-theme] .uts-fm-form{ font-family: var(--uts-f-form, var(--uts-f-ui)) !important; }
+html[lang="ar"][data-uts-theme] .list-row,
+html[lang="ar"][data-uts-theme] .list-row-head,
+html[lang="ar"][data-uts-theme] .list-row-container,
+html[lang="ar"][data-uts-theme] .result,
+html[lang="ar"][data-uts-theme] .frappe-list .list-row-col,
+html[lang="ar"][data-uts-theme] .list-paging-area,
+html[lang="ar"][data-uts-theme] .form-grid,
+html[lang="ar"][data-uts-theme] .form-grid .grid-row,
+html[lang="ar"][data-uts-theme] .grid-heading-row,
+html[lang="ar"][data-uts-theme] .grid-static-col,
+html[lang="ar"][data-uts-theme] .grid-body,
+html[lang="ar"][data-uts-theme] .datatable,
+html[lang="ar"][data-uts-theme] .dt-cell,
+html[lang="ar"][data-uts-theme] .dt-cell__content,
+html[lang="ar"][data-uts-theme] .dt-header,
+html[lang="ar"][data-uts-theme] .report-wrapper,
+html[lang="ar"][data-uts-theme] .dt-scrollable,
+html[lang="ar"][data-uts-theme] table,
+html[lang="ar"][data-uts-theme] .table,
+html[lang="ar"][data-uts-theme] .tree-link,
+html[lang="ar"][data-uts-theme] .form-grid .form-control,
+html[lang="ar"][data-uts-theme] .form-grid .frappe-control .form-control,
+html[lang="ar"][data-uts-theme] .form-grid .frappe-control input,
+html[lang="ar"][data-uts-theme] .form-grid .frappe-control select,
+html[lang="ar"][data-uts-theme] .grid-row .static-area,
+html[lang="ar"][data-uts-theme] .dt-cell input,
+html[lang="ar"][data-uts-theme] .uts-fm-table,
+html[lang="ar"][data-uts-theme] .uts-fm-table td,
+html[lang="ar"][data-uts-theme] .uts-fm-table th{ font-family: var(--uts-f-table, var(--uts-f-ui)) !important; }
+
+/* v1.5: v16 shows the page title as the last breadcrumb label - it belongs to the heading role */
+html[data-uts-theme] .page-head .es-breadcrumbs__label{ font-family: var(--uts-f-heading, var(--uts-f-ui)); }
+html[lang="ar"][data-uts-theme] .page-head .es-breadcrumbs__label{ font-family: var(--uts-f-heading, var(--uts-f-ui)) !important; }

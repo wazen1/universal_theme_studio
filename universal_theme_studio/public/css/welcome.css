@@ -1,0 +1,361 @@
+/* Universal Theme Studio - /desk welcome header + smart clock (markup built by js/welcome.js).
+   #uts-hero only exists while the launcher is visible, so nothing here can reach another page.
+   Colours come from the existing --uts-* tokens; text switches to light ink over a wallpaper. */
+
+/* 1. Launcher: remove Frappe's separator under the top bar (launcher only) */
+body.desktop-page:has(#page-desktop:not([style*="display: none"])) .desktop-navbar{
+	border-bottom: 0; box-shadow: none; background: transparent;
+}
+/* icons start under the hero instead of being vertically centred in the leftover height */
+body.desktop-page:has(#uts-hero:not([hidden])) .desktop-container{
+	height: auto; min-height: 0; align-items: flex-start; padding: 10px 0 56px;
+}
+
+/* 2. Tokens */
+#uts-hero{
+	--h-ink: var(--ink-gray-9);
+	--h-ink2: var(--ink-gray-6);
+	--h-glass: color-mix(in srgb, var(--uts-surface) 78%, transparent);
+	--h-border: var(--border-color);
+	--h-shadow: 0 10px 34px rgb(16 24 40 / .12);
+	--h-accent: var(--uts-p);
+	--h-accent2: var(--uts-a);
+}
+html[data-uts-wp="on"] #uts-hero{
+	--h-ink: #fff; --h-ink2: rgb(255 255 255 / .8);
+	--h-glass: rgb(12 16 26 / .42); --h-border: rgb(255 255 255 / .24);
+	--h-shadow: 0 14px 40px rgb(0 0 0 / .34), inset 0 1px 0 rgb(255 255 255 / .18);
+	--h-accent: color-mix(in srgb, var(--uts-p) 35%, #fff);
+	--h-accent2: color-mix(in srgb, var(--uts-a) 40%, #fff);
+}
+#uts-hero[hidden]{ display: none; }
+
+/* 3. Layout */
+#uts-hero{
+	display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px 28px;
+	width: min(100%, 1180px); margin-inline: auto; box-sizing: border-box;
+	padding: 26px clamp(16px, 4vw, 40px) 4px; color: var(--h-ink);
+}
+#uts-hero[data-welcome="0"] .uts-welcome{ display: none; }
+#uts-hero[data-welcome="0"]{ justify-content: flex-end; }
+#uts-hero[data-clock="0"][data-calendar="0"] .uts-clock-card{ display: none; }
+#uts-hero[data-clock="0"] .uts-clock{ display: none; }
+#uts-hero[data-calendar="0"] .uts-dates{ display: none; }
+
+/* 4. Welcome */
+.uts-welcome{ display: flex; align-items: center; gap: 16px; min-width: 0; }
+.uts-avatar .avatar{ width: 62px; height: 62px; box-shadow: 0 0 0 3px color-mix(in srgb, var(--h-ink) 35%, transparent), 0 8px 22px rgb(0 0 0 / .25); border-radius: 50%; }
+.uts-avatar .avatar .avatar-frame{ width: 100%; height: 100%; border-radius: 50%; font-size: 1.35rem; font-weight: 600; background-size: cover; background-position: center; }
+.uts-greet{ display: flex; align-items: center; gap: 12px; min-width: 0; }
+.uts-daynight{
+	flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+	background: var(--h-glass); border: 1px solid var(--h-border); box-shadow: var(--h-shadow);
+	-webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+}
+.uts-daynight svg{ width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.uts-daynight[data-kind="sun"]{ color: #ffc83d; }
+.uts-daynight[data-kind="sun"] svg circle{ fill: #ffc83d33; }
+.uts-daynight[data-kind="moon"]{ color: #cfd8ff; }
+.uts-greet-text{
+	margin: 0; font-size: clamp(1.35rem, 2.4vw + .6rem, 2.1rem); font-weight: 700; line-height: 1.25; letter-spacing: 0;
+	color: var(--h-ink); text-shadow: 0 1px 2px rgb(0 0 0 / .22);
+}
+html[data-uts-wp="on"] .uts-greet-text{ text-shadow: 0 2px 14px rgb(0 0 0 / .55), 0 1px 2px rgb(0 0 0 / .6); }
+
+/* 5. Card */
+.uts-clock-card{
+	display: flex; align-items: center; gap: 22px; padding: 16px 24px; border-radius: var(--uts-r-lg, 14px);
+	background: var(--h-glass); border: 1px solid var(--h-border); box-shadow: var(--h-shadow);
+	-webkit-backdrop-filter: blur(16px) saturate(1.3); backdrop-filter: blur(16px) saturate(1.3);
+	color: var(--h-ink); min-width: 0; max-width: 100%;
+}
+.uts-dates{ display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.uts-weekday{ font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
+.uts-date{ display: flex; align-items: center; gap: 8px; font-size: .92rem; color: var(--h-ink2); font-variant-numeric: tabular-nums; }
+.uts-date b{
+	flex: 0 0 auto; font-size: .66rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px;
+	color: var(--h-ink); background: color-mix(in srgb, var(--h-accent) 28%, transparent); border: 1px solid color-mix(in srgb, var(--h-accent) 45%, transparent);
+}
+html[dir="rtl"] .uts-date b{ letter-spacing: 0; text-transform: none; font-size: .72rem; }
+.uts-date[hidden]{ display: none; }
+
+/* 6. Clock: all faces share the markup; theme CSS decides what shows */
+.uts-clock{ position: relative; display: grid; place-items: center; flex: 0 0 auto; }
+.uts-analog, .uts-rings, .uts-digital, .uts-secbar{ grid-area: 1 / 1; display: none; }
+.uts-analog svg, .uts-rings svg{ display: block; width: 100%; height: 100%; overflow: visible; }
+.uts-digital{ font-variant-numeric: tabular-nums; white-space: nowrap; direction: ltr; align-items: baseline; justify-content: center; }
+.uts-digital .d-ap{ margin-inline-start: .4em; font-size: .42em; font-weight: 600; opacity: .8; }
+.uts-digital .d-ap:empty{ display: none; }
+.uts-digital .d-c{ opacity: .8; animation: uts-blink 1s steps(1, end) infinite; }
+@keyframes uts-blink{ 50%{ opacity: .25; } }
+.a-hand{ stroke-linecap: round; }
+.a-nums, .a-shine{ display: none; }
+.r-track{ fill: none; }
+.r-arc{ fill: none; stroke-linecap: round; transform: rotate(-90deg); transform-origin: 100px 100px; stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset .35s linear; }
+
+/* ---- Fiori Blue: elegant blue glass analog ---- */
+html[data-uts-theme="fiori-blue"] .uts-analog{ display: block; width: 150px; height: 150px; border-radius: 50%;
+	background: radial-gradient(circle at 30% 25%, rgb(255 255 255 / .35), rgb(10 110 209 / .22) 70%);
+	border: 1px solid rgb(255 255 255 / .45);
+	box-shadow: 0 10px 30px rgb(10 79 156 / .45), inset 0 0 22px rgb(255 255 255 / .22), inset 0 -8px 20px rgb(10 79 156 / .35);
+	-webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+html[data-uts-theme="fiori-blue"] .a-bezel{ fill: none; stroke: rgb(255 255 255 / .55); stroke-width: 1.5; }
+html[data-uts-theme="fiori-blue"] .a-face{ fill: url(#uts-g-glass); }
+html[data-uts-theme="fiori-blue"] .a-shine{ display: block; fill: rgb(255 255 255 / .22); }
+html[data-uts-theme="fiori-blue"] .t-major{ stroke: #fff; stroke-width: 3; stroke-linecap: round; }
+html[data-uts-theme="fiori-blue"] .t-minor{ stroke: rgb(255 255 255 / .5); stroke-width: 1; }
+html[data-uts-theme="fiori-blue"] .a-hour{ stroke: #fff; stroke-width: 6; }
+html[data-uts-theme="fiori-blue"] .a-min{ stroke: #e9f4ff; stroke-width: 4; }
+html[data-uts-theme="fiori-blue"] .a-sec{ stroke: #ffb35c; stroke-width: 2; }
+html[data-uts-theme="fiori-blue"] .a-pin{ fill: #ffb35c; stroke: #fff; stroke-width: 2; }
+html[data-uts-theme="fiori-blue"] .a-hand{ filter: drop-shadow(0 1px 2px rgb(0 40 100 / .5)); }
+html[data-uts-theme="fiori-blue"] .uts-digital{ display: flex; grid-area: 2 / 1; font-size: 1rem; font-weight: 600; letter-spacing: .02em; color: var(--h-ink); margin-top: 8px; }
+html[data-uts-theme="fiori-blue"] .uts-clock{ grid-template-rows: auto auto; }
+
+/* ---- Redwood Purple: minimal purple digital ---- */
+html[data-uts-theme="redwood-purple"] .uts-clock-card{ flex-direction: column; align-items: flex-start; gap: 6px; border-radius: 22px;
+	background: linear-gradient(160deg, rgb(255 255 255 / .12), rgb(107 63 160 / .28)), var(--h-glass); }
+html[data-uts-theme="redwood-purple"] .uts-digital{ display: flex; font-size: clamp(2.6rem, 5vw, 3.8rem); font-weight: 300; letter-spacing: -.02em; line-height: 1;
+	color: var(--h-ink); text-shadow: 0 0 28px color-mix(in srgb, var(--h-accent) 55%, transparent); }
+html[data-uts-theme="redwood-purple"] .d-s{ font-size: .38em; font-weight: 500; color: var(--h-accent); margin-inline-start: .3em; align-self: flex-end; padding-bottom: .22em; }
+html[data-uts-theme="redwood-purple"] .d-s::before{ content: none; }
+html[data-uts-theme="redwood-purple"] .d-c2{ display: none; }
+html[data-uts-theme="redwood-purple"] .uts-secbar{ display: block; justify-self: stretch; align-self: end; height: 2px; border-radius: 2px; margin-top: 8px; background: color-mix(in srgb, var(--h-ink) 18%, transparent); overflow: hidden; }
+html[data-uts-theme="redwood-purple"] .uts-secbar i{ display: block; height: 100%; background: linear-gradient(90deg, var(--h-accent), var(--h-accent2)); transition: width .3s linear; }
+html[data-uts-theme="redwood-purple"] .uts-clock{ width: 100%; grid-template-rows: auto auto; }
+html[data-uts-theme="redwood-purple"] .uts-digital{ grid-area: 1 / 1; }
+html[data-uts-theme="redwood-purple"] .uts-secbar{ grid-area: 2 / 1; }
+
+/* ---- Emerald Modern: modern emerald circular clock ---- */
+html[data-uts-theme="emerald-modern"] .uts-rings{ display: block; width: 150px; height: 150px; }
+html[data-uts-theme="emerald-modern"] .r-track{ stroke: rgb(255 255 255 / .12); stroke-width: 7; }
+html[data-uts-theme="emerald-modern"] .r-arc{ stroke-width: 7; }
+html[data-uts-theme="emerald-modern"] .r-s{ stroke: #34d399; filter: drop-shadow(0 0 5px rgb(52 211 153 / .6)); }
+html[data-uts-theme="emerald-modern"] .r-m{ stroke: #6ee7b7; }
+html[data-uts-theme="emerald-modern"] .r-h{ stroke: #fbbf24; }
+html:not([data-uts-wp="on"])[data-uts-theme="emerald-modern"] .r-track{ stroke: color-mix(in srgb, var(--uts-p) 14%, transparent); }
+html[data-uts-theme="emerald-modern"] .uts-digital{ display: flex; flex-wrap: wrap; width: 92px; justify-content: center; align-content: center; font-size: 1.3rem; font-weight: 700; line-height: 1.15; }
+html[data-uts-theme="emerald-modern"] .d-c2, html[data-uts-theme="emerald-modern"] .d-ap{ display: none; }
+html[data-uts-theme="emerald-modern"] .d-s{ flex-basis: 100%; text-align: center; font-size: .66em; font-weight: 600; color: #6ee7b7; margin-top: 1px; }
+html[data-uts-wp="on"][data-uts-theme="emerald-modern"] .uts-clock-card{ background: linear-gradient(135deg, rgb(4 120 87 / .38), rgb(12 16 26 / .42)); }
+html[data-uts-theme="emerald-modern"] .uts-digital .d-ap:not(:empty){ display: block; flex-basis: 100%; text-align: center; font-size: .5em; margin: 0; }
+
+/* ---- Midnight Pro: futuristic illuminated digital ---- */
+html[data-uts-theme="midnight-pro"] .uts-clock-card{ flex-direction: column; align-items: stretch; gap: 10px; border-radius: 10px; border-color: rgb(94 225 255 / .45);
+	background: linear-gradient(rgb(94 225 255 / .05) 50%, transparent 50%) 0 0 / 100% 4px, linear-gradient(160deg, rgb(7 11 24 / .78), rgb(26 33 96 / .62));
+	box-shadow: 0 0 0 1px rgb(79 70 229 / .35), 0 0 28px rgb(79 100 255 / .38), inset 0 0 26px rgb(94 225 255 / .1); }
+html[data-uts-theme="midnight-pro"] .uts-digital{ display: flex; font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-weight: 700; font-size: clamp(2rem, 4.2vw, 3.1rem); letter-spacing: .06em; line-height: 1;
+	color: #8ff0ff; text-shadow: 0 0 6px #5ee1ff, 0 0 18px rgb(94 225 255 / .8), 0 0 38px rgb(79 100 255 / .7); }
+html[data-uts-theme="midnight-pro"] .d-s{ color: #c4b5ff; text-shadow: 0 0 6px #8b7bff, 0 0 18px rgb(139 123 255 / .8); }
+html[data-uts-theme="midnight-pro"] .uts-digital .d-ap{ font-size: .34em; letter-spacing: .08em; color: #8ff0ff; }
+html[data-uts-theme="midnight-pro"] .uts-secbar{ display: block; justify-self: stretch; height: 3px; border-radius: 3px; background: rgb(94 225 255 / .16); overflow: hidden; margin-top: 10px; }
+html[data-uts-theme="midnight-pro"] .uts-secbar i{ display: block; height: 100%; background: linear-gradient(90deg, #4f46e5, #5ee1ff); box-shadow: 0 0 10px #5ee1ff; transition: width .3s linear; }
+html[data-uts-theme="midnight-pro"] .uts-clock{ width: 100%; grid-template-rows: auto auto; }
+html[data-uts-theme="midnight-pro"] .uts-digital{ grid-area: 1 / 1; }
+html[data-uts-theme="midnight-pro"] .uts-secbar{ grid-area: 2 / 1; }
+
+/* ---- Sandstone Premium: classic analog with copper accents ---- */
+html[data-uts-theme="sandstone-premium"] .uts-analog{ display: block; width: 150px; height: 150px; border-radius: 50%; filter: drop-shadow(0 10px 18px rgb(60 35 12 / .45)); }
+html[data-uts-theme="sandstone-premium"] .a-bezel{ fill: url(#uts-g-copper); stroke: #5c3718; stroke-width: 1; }
+html[data-uts-theme="sandstone-premium"] .a-face{ fill: #f8efde; stroke: #7a4520; stroke-width: 1.2; }
+html[data-uts-theme="sandstone-premium"] .t-major{ stroke: #7a4520; stroke-width: 2.2; }
+html[data-uts-theme="sandstone-premium"] .t-minor{ stroke: #b8743a; stroke-width: .9; }
+html[data-uts-theme="sandstone-premium"] .a-nums{ display: block; }
+html[data-uts-theme="sandstone-premium"] .n-roman{ fill: #5c3718; font: 700 11px Georgia, "Times New Roman", serif; text-anchor: middle; dominant-baseline: central; }
+html[data-uts-theme="sandstone-premium"] .a-hour{ stroke: #3d2412; stroke-width: 5.5; }
+html[data-uts-theme="sandstone-premium"] .a-min{ stroke: #5c3718; stroke-width: 3.6; }
+html[data-uts-theme="sandstone-premium"] .a-sec{ stroke: #c4783a; stroke-width: 1.6; }
+html[data-uts-theme="sandstone-premium"] .a-pin{ fill: url(#uts-g-copper); stroke: #3d2412; stroke-width: 1.2; }
+html[data-uts-theme="sandstone-premium"] .uts-digital{ display: flex; grid-area: 2 / 1; font: 600 1rem Georgia, "Times New Roman", serif; letter-spacing: .04em; color: var(--h-ink); margin-top: 8px; }
+html[data-uts-theme="sandstone-premium"] .uts-clock{ grid-template-rows: auto auto; }
+html[data-uts-wp="on"][data-uts-theme="sandstone-premium"] .uts-clock-card{ border-color: rgb(241 197 143 / .5); background: linear-gradient(150deg, rgb(184 116 58 / .22), rgb(12 16 26 / .42)); }
+
+/* 7. Responsive */
+@media (max-width: 767px){
+	#uts-hero{ padding-top: 14px; gap: 14px; flex-direction: column; align-items: stretch; }
+	.uts-welcome{ gap: 12px; }
+	.uts-avatar .avatar{ width: 48px; height: 48px; }
+	.uts-daynight{ width: 36px; height: 36px; }
+	.uts-clock-card{ width: 100%; box-sizing: border-box; padding: 12px 16px; gap: 14px; justify-content: space-between; }
+	html[data-uts-theme="fiori-blue"] .uts-analog, html[data-uts-theme="sandstone-premium"] .uts-analog{ width: 112px; height: 112px; }
+	html[data-uts-theme="emerald-modern"] .uts-rings{ width: 118px; height: 118px; }
+	html[data-uts-theme="emerald-modern"] .uts-digital{ width: 72px; font-size: 1.05rem; }
+	html[data-uts-theme="redwood-purple"] .uts-clock-card, html[data-uts-theme="midnight-pro"] .uts-clock-card{ align-items: stretch; }
+	.uts-weekday{ font-size: 1.05rem; }
+	.uts-date{ font-size: .82rem; }
+}
+@media (max-width: 420px){
+	html[data-uts-theme="fiori-blue"] .uts-clock-card, html[data-uts-theme="emerald-modern"] .uts-clock-card, html[data-uts-theme="sandstone-premium"] .uts-clock-card{ flex-wrap: wrap; justify-content: center; text-align: center; }
+	.uts-dates{ align-items: center; }
+}
+@media (prefers-reduced-motion: reduce){
+	.uts-digital .d-c{ animation: none; opacity: 1; }
+	.r-arc, .uts-secbar i{ transition: none; }
+}
+@media (prefers-reduced-transparency: reduce){
+	.uts-clock-card, .uts-daynight{ -webkit-backdrop-filter: none; backdrop-filter: none; background: rgb(12 16 26 / .88); }
+}
+
+/* ===== v1.4: clock faces for the six mixed-colour themes (copied from the closest original face, then overridden) ===== */
+html[data-uts-theme="ocean-breeze"] .uts-analog{ display: block; width: 150px; height: 150px; border-radius: 50%;
+	background: radial-gradient(circle at 30% 25%, rgb(255 255 255 / .35), rgb(10 110 209 / .22) 70%);
+	border: 1px solid rgb(255 255 255 / .45);
+	box-shadow: 0 10px 30px rgb(10 79 156 / .45), inset 0 0 22px rgb(255 255 255 / .22), inset 0 -8px 20px rgb(10 79 156 / .35);
+	-webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+html[data-uts-theme="ocean-breeze"] .a-bezel{ fill: none; stroke: rgb(255 255 255 / .55); stroke-width: 1.5; }
+html[data-uts-theme="ocean-breeze"] .a-face{ fill: url(#uts-g-glass); }
+html[data-uts-theme="ocean-breeze"] .a-shine{ display: block; fill: rgb(255 255 255 / .22); }
+html[data-uts-theme="ocean-breeze"] .t-major{ stroke: #fff; stroke-width: 3; stroke-linecap: round; }
+html[data-uts-theme="ocean-breeze"] .t-minor{ stroke: rgb(255 255 255 / .5); stroke-width: 1; }
+html[data-uts-theme="ocean-breeze"] .a-hour{ stroke: #fff; stroke-width: 6; }
+html[data-uts-theme="ocean-breeze"] .a-min{ stroke: #e9f4ff; stroke-width: 4; }
+html[data-uts-theme="ocean-breeze"] .a-sec{ stroke: #ffb35c; stroke-width: 2; }
+html[data-uts-theme="ocean-breeze"] .a-pin{ fill: #ffb35c; stroke: #fff; stroke-width: 2; }
+html[data-uts-theme="ocean-breeze"] .a-hand{ filter: drop-shadow(0 1px 2px rgb(0 40 100 / .5)); }
+html[data-uts-theme="ocean-breeze"] .uts-digital{ display: flex; grid-area: 2 / 1; font-size: 1rem; font-weight: 600; letter-spacing: .02em; color: var(--h-ink); margin-top: 8px; }
+html[data-uts-theme="ocean-breeze"] .uts-clock{ grid-template-rows: auto auto; }
+html[data-uts-theme="sunset-fusion"] .uts-rings{ display: block; width: 150px; height: 150px; }
+html[data-uts-theme="sunset-fusion"] .r-track{ stroke: rgb(255 255 255 / .12); stroke-width: 7; }
+html[data-uts-theme="sunset-fusion"] .r-arc{ stroke-width: 7; }
+html[data-uts-theme="sunset-fusion"] .r-s{ stroke: #34d399; filter: drop-shadow(0 0 5px rgb(52 211 153 / .6)); }
+html[data-uts-theme="sunset-fusion"] .r-m{ stroke: #6ee7b7; }
+html[data-uts-theme="sunset-fusion"] .r-h{ stroke: #fbbf24; }
+html:not([data-uts-wp="on"])[data-uts-theme="sunset-fusion"] .r-track{ stroke: color-mix(in srgb, var(--uts-p) 14%, transparent); }
+html[data-uts-theme="sunset-fusion"] .uts-digital{ display: flex; flex-wrap: wrap; width: 92px; justify-content: center; align-content: center; font-size: 1.3rem; font-weight: 700; line-height: 1.15; }
+html[data-uts-theme="sunset-fusion"] .d-c2, html[data-uts-theme="sunset-fusion"] .d-ap{ display: none; }
+html[data-uts-theme="sunset-fusion"] .d-s{ flex-basis: 100%; text-align: center; font-size: .66em; font-weight: 600; color: #6ee7b7; margin-top: 1px; }
+html[data-uts-wp="on"][data-uts-theme="sunset-fusion"] .uts-clock-card{ background: linear-gradient(135deg, rgb(4 120 87 / .38), rgb(12 16 26 / .42)); }
+html[data-uts-theme="sunset-fusion"] .uts-digital .d-ap:not(:empty){ display: block; flex-basis: 100%; text-align: center; font-size: .5em; margin: 0; }
+html[data-uts-theme="forest-harmony"] .uts-analog{ display: block; width: 150px; height: 150px; border-radius: 50%; filter: drop-shadow(0 10px 18px rgb(60 35 12 / .45)); }
+html[data-uts-theme="forest-harmony"] .a-bezel{ fill: url(#uts-g-copper); stroke: #5c3718; stroke-width: 1; }
+html[data-uts-theme="forest-harmony"] .a-face{ fill: #f8efde; stroke: #7a4520; stroke-width: 1.2; }
+html[data-uts-theme="forest-harmony"] .t-major{ stroke: #7a4520; stroke-width: 2.2; }
+html[data-uts-theme="forest-harmony"] .t-minor{ stroke: #b8743a; stroke-width: .9; }
+html[data-uts-theme="forest-harmony"] .a-nums{ display: block; }
+html[data-uts-theme="forest-harmony"] .n-roman{ fill: #5c3718; font: 700 11px Georgia, "Times New Roman", serif; text-anchor: middle; dominant-baseline: central; }
+html[data-uts-theme="forest-harmony"] .a-hour{ stroke: #3d2412; stroke-width: 5.5; }
+html[data-uts-theme="forest-harmony"] .a-min{ stroke: #5c3718; stroke-width: 3.6; }
+html[data-uts-theme="forest-harmony"] .a-sec{ stroke: #c4783a; stroke-width: 1.6; }
+html[data-uts-theme="forest-harmony"] .a-pin{ fill: url(#uts-g-copper); stroke: #3d2412; stroke-width: 1.2; }
+html[data-uts-theme="forest-harmony"] .uts-digital{ display: flex; grid-area: 2 / 1; font: 600 1rem Georgia, "Times New Roman", serif; letter-spacing: .04em; color: var(--h-ink); margin-top: 8px; }
+html[data-uts-theme="forest-harmony"] .uts-clock{ grid-template-rows: auto auto; }
+html[data-uts-wp="on"][data-uts-theme="forest-harmony"] .uts-clock-card{ border-color: rgb(241 197 143 / .5); background: linear-gradient(150deg, rgb(184 116 58 / .22), rgb(12 16 26 / .42)); }
+html[data-uts-theme="royal-indigo"] .uts-clock-card{ flex-direction: column; align-items: flex-start; gap: 6px; border-radius: 22px;
+	background: linear-gradient(160deg, rgb(255 255 255 / .12), rgb(107 63 160 / .28)), var(--h-glass); }
+html[data-uts-theme="royal-indigo"] .uts-digital{ display: flex; font-size: clamp(2.6rem, 5vw, 3.8rem); font-weight: 300; letter-spacing: -.02em; line-height: 1;
+	color: var(--h-ink); text-shadow: 0 0 28px color-mix(in srgb, var(--h-accent) 55%, transparent); }
+html[data-uts-theme="royal-indigo"] .d-s{ font-size: .38em; font-weight: 500; color: var(--h-accent); margin-inline-start: .3em; align-self: flex-end; padding-bottom: .22em; }
+html[data-uts-theme="royal-indigo"] .d-s::before{ content: none; }
+html[data-uts-theme="royal-indigo"] .d-c2{ display: none; }
+html[data-uts-theme="royal-indigo"] .uts-secbar{ display: block; justify-self: stretch; align-self: end; height: 2px; border-radius: 2px; margin-top: 8px; background: color-mix(in srgb, var(--h-ink) 18%, transparent); overflow: hidden; }
+html[data-uts-theme="royal-indigo"] .uts-secbar i{ display: block; height: 100%; background: linear-gradient(90deg, var(--h-accent), var(--h-accent2)); transition: width .3s linear; }
+html[data-uts-theme="royal-indigo"] .uts-clock{ width: 100%; grid-template-rows: auto auto; }
+html[data-uts-theme="royal-indigo"] .uts-digital{ grid-area: 1 / 1; }
+html[data-uts-theme="royal-indigo"] .uts-secbar{ grid-area: 2 / 1; }
+html[data-uts-theme="modern-teal"] .uts-analog{ display: block; width: 150px; height: 150px; border-radius: 50%;
+	background: radial-gradient(circle at 30% 25%, rgb(255 255 255 / .35), rgb(10 110 209 / .22) 70%);
+	border: 1px solid rgb(255 255 255 / .45);
+	box-shadow: 0 10px 30px rgb(10 79 156 / .45), inset 0 0 22px rgb(255 255 255 / .22), inset 0 -8px 20px rgb(10 79 156 / .35);
+	-webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+html[data-uts-theme="modern-teal"] .a-bezel{ fill: none; stroke: rgb(255 255 255 / .55); stroke-width: 1.5; }
+html[data-uts-theme="modern-teal"] .a-face{ fill: url(#uts-g-glass); }
+html[data-uts-theme="modern-teal"] .a-shine{ display: block; fill: rgb(255 255 255 / .22); }
+html[data-uts-theme="modern-teal"] .t-major{ stroke: #fff; stroke-width: 3; stroke-linecap: round; }
+html[data-uts-theme="modern-teal"] .t-minor{ stroke: rgb(255 255 255 / .5); stroke-width: 1; }
+html[data-uts-theme="modern-teal"] .a-hour{ stroke: #fff; stroke-width: 6; }
+html[data-uts-theme="modern-teal"] .a-min{ stroke: #e9f4ff; stroke-width: 4; }
+html[data-uts-theme="modern-teal"] .a-sec{ stroke: #ffb35c; stroke-width: 2; }
+html[data-uts-theme="modern-teal"] .a-pin{ fill: #ffb35c; stroke: #fff; stroke-width: 2; }
+html[data-uts-theme="modern-teal"] .a-hand{ filter: drop-shadow(0 1px 2px rgb(0 40 100 / .5)); }
+html[data-uts-theme="modern-teal"] .uts-digital{ display: flex; grid-area: 2 / 1; font-size: 1rem; font-weight: 600; letter-spacing: .02em; color: var(--h-ink); margin-top: 8px; }
+html[data-uts-theme="modern-teal"] .uts-clock{ grid-template-rows: auto auto; }
+html[data-uts-theme="carbon-pro"] .uts-clock-card{ flex-direction: column; align-items: stretch; gap: 10px; border-radius: 10px; border-color: rgb(94 225 255 / .45);
+	background: linear-gradient(rgb(94 225 255 / .05) 50%, transparent 50%) 0 0 / 100% 4px, linear-gradient(160deg, rgb(7 11 24 / .78), rgb(26 33 96 / .62));
+	box-shadow: 0 0 0 1px rgb(79 70 229 / .35), 0 0 28px rgb(79 100 255 / .38), inset 0 0 26px rgb(94 225 255 / .1); }
+html[data-uts-theme="carbon-pro"] .uts-digital{ display: flex; font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-weight: 700; font-size: clamp(2rem, 4.2vw, 3.1rem); letter-spacing: .06em; line-height: 1;
+	color: #8ff0ff; text-shadow: 0 0 6px #5ee1ff, 0 0 18px rgb(94 225 255 / .8), 0 0 38px rgb(79 100 255 / .7); }
+html[data-uts-theme="carbon-pro"] .d-s{ color: #c4b5ff; text-shadow: 0 0 6px #8b7bff, 0 0 18px rgb(139 123 255 / .8); }
+html[data-uts-theme="carbon-pro"] .uts-digital .d-ap{ font-size: .34em; letter-spacing: .08em; color: #8ff0ff; }
+html[data-uts-theme="carbon-pro"] .uts-secbar{ display: block; justify-self: stretch; height: 3px; border-radius: 3px; background: rgb(94 225 255 / .16); overflow: hidden; margin-top: 10px; }
+html[data-uts-theme="carbon-pro"] .uts-secbar i{ display: block; height: 100%; background: linear-gradient(90deg, #4f46e5, #5ee1ff); box-shadow: 0 0 10px #5ee1ff; transition: width .3s linear; }
+html[data-uts-theme="carbon-pro"] .uts-clock{ width: 100%; grid-template-rows: auto auto; }
+html[data-uts-theme="carbon-pro"] .uts-digital{ grid-area: 1 / 1; }
+html[data-uts-theme="carbon-pro"] .uts-secbar{ grid-area: 2 / 1; }
+
+/* ---- Ocean Breeze: turquoise glass analog, dotted dial ---- */
+html[data-uts-theme="ocean-breeze"] .uts-analog{ background: radial-gradient(circle at 30% 22%, rgb(255 255 255 / .38), rgb(6 182 212 / .22) 55%, rgb(29 78 216 / .28) 100%); box-shadow: 0 10px 30px rgb(11 58 140 / .5), inset 0 0 24px rgb(255 255 255 / .25), inset 0 -10px 22px rgb(20 184 166 / .3); }
+html[data-uts-theme="ocean-breeze"] .a-face{ fill: url(#uts-g-ocean); }
+html[data-uts-theme="ocean-breeze"] .t-minor{ display: none; }
+html[data-uts-theme="ocean-breeze"] .t-major{ stroke: #e6fffb; stroke-width: 5; stroke-linecap: round; }
+html[data-uts-theme="ocean-breeze"] .a-sec{ stroke: #2dd4bf; }
+html[data-uts-theme="ocean-breeze"] .a-pin{ fill: #2dd4bf; }
+html[data-uts-theme="ocean-breeze"] .a-min{ stroke: #bff3ff; }
+
+/* ---- Sunset Fusion: gradient rings (orange / pink / purple) ---- */
+html[data-uts-theme="sunset-fusion"] .r-s{ stroke: #fb923c; filter: drop-shadow(0 0 5px rgb(251 146 60 / .6)); }
+html[data-uts-theme="sunset-fusion"] .r-m{ stroke: #f472b6; }
+html[data-uts-theme="sunset-fusion"] .r-h{ stroke: #c084fc; }
+html[data-uts-theme="sunset-fusion"] .d-s{ color: #fdba74; }
+html[data-uts-wp="on"][data-uts-theme="sunset-fusion"] .uts-clock-card{ background: linear-gradient(135deg, rgb(194 65 12 / .38), rgb(219 39 119 / .3) 55%, rgb(91 33 182 / .38)); }
+
+/* ---- Forest Harmony: green bezel, cream face, quarter numerals ---- */
+html[data-uts-theme="forest-harmony"] .a-bezel{ fill: url(#uts-g-forest); stroke: #0f3d1f; }
+html[data-uts-theme="forest-harmony"] .a-face{ fill: #f6f2e2; stroke: #166534; }
+html[data-uts-theme="forest-harmony"] .n-roman:not(:nth-child(3n+1)){ display: none; }
+html[data-uts-theme="forest-harmony"] .n-roman{ fill: #14532d; font-size: 13px; }
+html[data-uts-theme="forest-harmony"] .t-major{ stroke: #166534; }
+html[data-uts-theme="forest-harmony"] .t-minor{ stroke: #84a653; }
+html[data-uts-theme="forest-harmony"] .a-hour{ stroke: #14532d; }
+html[data-uts-theme="forest-harmony"] .a-min{ stroke: #166534; }
+html[data-uts-theme="forest-harmony"] .a-sec{ stroke: #84cc16; }
+html[data-uts-theme="forest-harmony"] .a-pin{ fill: url(#uts-g-forest); stroke: #0f3d1f; }
+html[data-uts-wp="on"][data-uts-theme="forest-harmony"] .uts-clock-card{ border-color: rgb(163 230 53 / .45); background: linear-gradient(150deg, rgb(22 101 52 / .34), rgb(12 16 26 / .42)); }
+
+/* ---- Royal Indigo: minimal digital with violet-to-pink gradient digits ---- */
+html[data-uts-theme="royal-indigo"] .uts-clock-card{ background: linear-gradient(160deg, rgb(255 255 255 / .1), rgb(79 70 229 / .32)), var(--h-glass); }
+html[data-uts-theme="royal-indigo"] .uts-digital .d-h,
+html[data-uts-theme="royal-indigo"] .uts-digital .d-m,
+html[data-uts-theme="royal-indigo"] .uts-digital .d-c{ background: linear-gradient(180deg, #fff 10%, #e9d5ff 55%, #f9a8d4 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; text-shadow: none; }
+html[data-uts-theme="royal-indigo"] .d-s{ color: #f9a8d4; }
+html[data-uts-theme="royal-indigo"] .uts-secbar i{ background: linear-gradient(90deg, #a5b4fc, #f9a8d4); }
+html:not([data-uts-wp="on"])[data-uts-theme="royal-indigo"] .uts-digital .d-h,
+html:not([data-uts-wp="on"])[data-uts-theme="royal-indigo"] .uts-digital .d-m,
+html:not([data-uts-wp="on"])[data-uts-theme="royal-indigo"] .uts-digital .d-c{ background: linear-gradient(180deg, #4338ca, #7c3aed); -webkit-background-clip: text; background-clip: text; }
+
+/* ---- Modern Teal: flat contemporary analog, quarter ticks, thin hands ---- */
+html[data-uts-theme="modern-teal"] .uts-analog{ background: rgb(255 255 255 / .1); border: 1px solid rgb(255 255 255 / .35); box-shadow: 0 8px 22px rgb(4 24 26 / .35); }
+html[data-uts-theme="modern-teal"] .a-bezel{ stroke: none; }
+html[data-uts-theme="modern-teal"] .a-face{ fill: rgb(15 118 110 / .38); }
+html[data-uts-theme="modern-teal"] .a-shine{ display: none; }
+html[data-uts-theme="modern-teal"] .t-minor{ display: none; }
+html[data-uts-theme="modern-teal"] .t-major:not(:nth-child(15n+1)){ display: none; }
+html[data-uts-theme="modern-teal"] .t-major{ stroke: #fff; stroke-width: 4; stroke-linecap: round; }
+html[data-uts-theme="modern-teal"] .a-hour{ stroke: #fff; stroke-width: 4; }
+html[data-uts-theme="modern-teal"] .a-min{ stroke: #a5f3fc; stroke-width: 2.6; }
+html[data-uts-theme="modern-teal"] .a-sec{ stroke: #22d3ee; stroke-width: 1.3; }
+html[data-uts-theme="modern-teal"] .a-pin{ fill: #22d3ee; stroke: none; }
+html[data-uts-theme="modern-teal"] .a-hand{ filter: none; }
+
+/* ---- Carbon Pro: silver digits with electric-blue light bar ---- */
+html[data-uts-theme="carbon-pro"] .uts-clock-card{ border-color: rgb(203 213 225 / .4); background: linear-gradient(180deg, rgb(255 255 255 / .07), transparent 40%), linear-gradient(160deg, rgb(12 13 16 / .8), rgb(27 31 39 / .7)); box-shadow: 0 0 0 1px rgb(77 141 255 / .25), 0 12px 34px rgb(0 0 0 / .45), inset 0 1px 0 rgb(255 255 255 / .12); }
+html[data-uts-theme="carbon-pro"] .uts-digital{ color: #e5e9f0; text-shadow: 0 0 4px rgb(203 213 225 / .5), 0 0 16px rgb(77 141 255 / .55); letter-spacing: .05em; }
+html[data-uts-theme="carbon-pro"] .d-s{ color: #6ea8ff; text-shadow: 0 0 6px #4d8dff, 0 0 18px rgb(77 141 255 / .8); }
+html[data-uts-theme="carbon-pro"] .uts-digital .d-ap{ color: #cbd5e1; }
+html[data-uts-theme="carbon-pro"] .uts-secbar{ background: rgb(203 213 225 / .16); }
+html[data-uts-theme="carbon-pro"] .uts-secbar i{ background: linear-gradient(90deg, #94a3b8, #4d8dff); box-shadow: 0 0 10px #4d8dff; }
+
+/* ---- shared: responsive for new faces, glass transparency, light presets ---- */
+@media (max-width: 767px){
+	html:is([data-uts-theme="ocean-breeze"], [data-uts-theme="modern-teal"], [data-uts-theme="forest-harmony"]) .uts-analog{ width: 112px; height: 112px; }
+	html[data-uts-theme="sunset-fusion"] .uts-rings{ width: 118px; height: 118px; }
+	html[data-uts-theme="sunset-fusion"] .uts-digital{ width: 72px; font-size: 1.05rem; }
+	html:is([data-uts-theme="royal-indigo"], [data-uts-theme="carbon-pro"]) .uts-clock-card{ align-items: stretch; }
+}
+@media (max-width: 420px){
+	html:is([data-uts-theme="ocean-breeze"], [data-uts-theme="sunset-fusion"], [data-uts-theme="forest-harmony"], [data-uts-theme="modern-teal"]) .uts-clock-card{ flex-wrap: wrap; justify-content: center; text-align: center; }
+}
+html[data-uts-wp="on"] #uts-hero{ --h-glass: rgb(12 16 26 / min(.95, calc(.42 * var(--uts-glass-k, 1)))); }
+html[data-uts-wp="on"][data-uts-wp-tone="light"] .uts-greet-text{ color: #14202b; text-shadow: 0 1px 0 rgb(255 255 255 / .7); }
+html[data-uts-wp="on"][data-uts-wp-tone="light"] .uts-avatar .avatar{ box-shadow: 0 0 0 3px rgb(255 255 255 / .85), 0 8px 22px rgb(30 50 80 / .25); }
+
+html[data-uts-wp="on"][data-uts-wp-tone="light"] #uts-hero{ --h-glass: rgb(12 16 26 / min(.92, calc(.62 * var(--uts-glass-k, 1)))); }

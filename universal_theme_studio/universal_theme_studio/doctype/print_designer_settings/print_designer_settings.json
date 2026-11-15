@@ -1,0 +1,363 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-13 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sb_general",
+  "default_design",
+  "language_mode",
+  "cb_general",
+  "paper_size",
+  "orientation",
+  "margins",
+  "sb_style",
+  "primary_color",
+  "secondary_color",
+  "font_family",
+  "cb_style",
+  "font_size",
+  "table_style",
+  "decorative_patterns",
+  "ink_saving",
+  "sb_brand",
+  "logo",
+  "header_text",
+  "cb_brand",
+  "footer_text",
+  "sb_options",
+  "show_qr",
+  "qr_content",
+  "cb_options",
+  "show_signature",
+  "signature_labels",
+  "sb_reports",
+  "reports_enabled",
+  "reports_all",
+  "report_style",
+  "report_page_size",
+  "report_orientation",
+  "cb_reports",
+  "report_font",
+  "report_language",
+  "report_show_logo",
+  "report_show_user",
+  "report_show_date",
+  "report_show_rownum",
+  "report_allow_user_prefs",
+  "report_preview",
+  "sb_assign",
+  "assignments",
+  "sb_preview",
+  "preview"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb_general",
+   "label": "Design",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "default_design",
+   "label": "Default Design",
+   "fieldtype": "Select",
+   "options": "Classic Gold\nModern Blue\nElegant Teal\nPurple Wave\nExecutive Document\nCreative Corporate\nBusiness Classic\nInfo Card\nFull Band\nNumber Tile",
+   "default": "Modern Blue",
+   "description": "Used for every supported DocType without its own assignment."
+  },
+  {
+   "fieldname": "language_mode",
+   "label": "Language",
+   "fieldtype": "Select",
+   "options": "Auto (document / user language)\nArabic\nEnglish\nBilingual (Arabic + English)",
+   "default": "Arabic"
+  },
+  {
+   "fieldname": "cb_general",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "paper_size",
+   "label": "Paper",
+   "fieldtype": "Select",
+   "options": "A4\nLetter",
+   "default": "A4"
+  },
+  {
+   "fieldname": "orientation",
+   "label": "Orientation",
+   "fieldtype": "Select",
+   "options": "Portrait\nLandscape",
+   "default": "Portrait"
+  },
+  {
+   "fieldname": "margins",
+   "label": "Page Margins",
+   "fieldtype": "Select",
+   "options": "Narrow\nNormal\nWide",
+   "default": "Normal"
+  },
+  {
+   "fieldname": "sb_style",
+   "label": "Style",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "primary_color",
+   "label": "Primary Color",
+   "fieldtype": "Color",
+   "description": "Empty = the design's own palette."
+  },
+  {
+   "fieldname": "secondary_color",
+   "label": "Secondary Color",
+   "fieldtype": "Color"
+  },
+  {
+   "fieldname": "font_family",
+   "label": "Font",
+   "fieldtype": "Select",
+   "options": "Tajawal\nCairo\nIBM Plex Sans Arabic\nAlexandria\nReadex Pro\nAlmarai\nNoto Sans Arabic\nRubik",
+   "default": "Tajawal"
+  },
+  {
+   "fieldname": "cb_style",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "font_size",
+   "label": "Text Size",
+   "fieldtype": "Select",
+   "options": "Small\nMedium\nLarge",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "table_style",
+   "label": "Table Style",
+   "fieldtype": "Select",
+   "options": "Design Default\nStriped\nLined\nBordered\nMinimal",
+   "default": "Design Default"
+  },
+  {
+   "fieldname": "decorative_patterns",
+   "label": "Decorative Patterns",
+   "fieldtype": "Check",
+   "default": "1",
+   "description": "Waves, frames and geometric patterns of the design."
+  },
+  {
+   "fieldname": "ink_saving",
+   "label": "Ink-saving Mode",
+   "fieldtype": "Check",
+   "default": "0",
+   "description": "No filled backgrounds, gradients or patterns: outlines and light tints only."
+  },
+  {
+   "fieldname": "sb_brand",
+   "label": "Branding",
+   "fieldtype": "Section Break",
+   "description": "The organization logo and details come from the document's Company; override them here."
+  },
+  {
+   "fieldname": "logo",
+   "label": "Logo",
+   "fieldtype": "Attach Image",
+   "description": "Empty = the Company logo."
+  },
+  {
+   "fieldname": "header_text",
+   "label": "Header Line",
+   "fieldtype": "Data",
+   "length": 140,
+   "description": "Optional line under the organization name (tagline, registration, ...)."
+  },
+  {
+   "fieldname": "cb_brand",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "footer_text",
+   "label": "Footer Text",
+   "fieldtype": "Small Text",
+   "description": "Optional text in the page footer (thank-you line, bank details, ...). Plain text only."
+  },
+  {
+   "fieldname": "sb_options",
+   "label": "Options",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "show_qr",
+   "label": "Show QR Code",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "qr_content",
+   "label": "QR Content",
+   "fieldtype": "Select",
+   "options": "Document URL\nDocument Number and Total",
+   "default": "Document URL"
+  },
+  {
+   "fieldname": "cb_options",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "show_signature",
+   "label": "Show Signature Section",
+   "fieldtype": "Check",
+   "default": "1"
+  },
+  {
+   "fieldname": "signature_labels",
+   "label": "Signature Labels",
+   "fieldtype": "Data",
+   "length": 140,
+   "description": "Up to three, separated by commas (e.g. Prepared by, Approved by, Received by). Empty = defaults in Arabic/English."
+  },
+  {
+   "fieldname": "sb_assign",
+   "label": "DocTypes",
+   "fieldtype": "Section Break",
+   "description": "Choose the design of each supported DocType and whether it becomes that DocType's default print format. Print formats named 'Print Studio - <DocType>' are created automatically; existing print formats are never changed."
+  },
+  {
+   "fieldname": "assignments",
+   "label": "Assignments",
+   "fieldtype": "Table",
+   "options": "Print Design Assignment"
+  },
+  {
+   "fieldname": "sb_preview",
+   "label": "Live Preview",
+   "fieldtype": "Section Break",
+   "description": "Renders a real document with the values above, before you save."
+  },
+  {
+   "fieldname": "preview",
+   "label": "Preview",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "sb_reports",
+   "fieldtype": "Section Break",
+   "label": "Financial Report Printing (Oracle styles)"
+  },
+  {
+   "fieldname": "reports_enabled",
+   "fieldtype": "Check",
+   "label": "Apply to accounting and financial reports",
+   "default": "1"
+  },
+  {
+   "fieldname": "reports_all",
+   "fieldtype": "Check",
+   "label": "Apply to all script/query reports (not only Accounts)",
+   "default": "0",
+   "depends_on": "reports_enabled"
+  },
+  {
+   "fieldname": "report_style",
+   "fieldtype": "Select",
+   "label": "Default Report Style",
+   "options": "Oracle Classic\nOracle Modern\nAudit Ledger\nStandard (Frappe)",
+   "default": "Oracle Classic"
+  },
+  {
+   "fieldname": "report_page_size",
+   "fieldtype": "Select",
+   "label": "Page Size",
+   "options": "A4\nA3",
+   "default": "A4"
+  },
+  {
+   "fieldname": "report_orientation",
+   "fieldtype": "Select",
+   "label": "Orientation",
+   "options": "Landscape\nPortrait",
+   "default": "Landscape"
+  },
+  {
+   "fieldname": "cb_reports",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "report_font",
+   "fieldtype": "Select",
+   "label": "Report Font",
+   "options": "Tajawal\nCairo",
+   "default": "Tajawal"
+  },
+  {
+   "fieldname": "report_language",
+   "fieldtype": "Select",
+   "label": "Report Language",
+   "options": "Auto (follow interface language)\nArabic\nEnglish",
+   "default": "Auto (follow interface language)"
+  },
+  {
+   "fieldname": "report_show_logo",
+   "fieldtype": "Check",
+   "label": "Show Company Logo",
+   "default": "1"
+  },
+  {
+   "fieldname": "report_show_user",
+   "fieldtype": "Check",
+   "label": "Show Printed By (user name)",
+   "default": "1"
+  },
+  {
+   "fieldname": "report_show_date",
+   "fieldtype": "Check",
+   "label": "Show Print Date",
+   "default": "1"
+  },
+  {
+   "fieldname": "report_show_rownum",
+   "fieldtype": "Check",
+   "label": "Show Row Numbers",
+   "default": "0"
+  },
+  {
+   "fieldname": "report_allow_user_prefs",
+   "fieldtype": "Check",
+   "label": "Allow users to choose their own report style and printing preferences",
+   "default": "1"
+  },
+  {
+   "fieldname": "report_preview",
+   "fieldtype": "HTML",
+   "label": "Report Preview"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-13 10:00:00",
+ "modified_by": "Administrator",
+ "module": "Universal Theme Studio",
+ "name": "Print Designer Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

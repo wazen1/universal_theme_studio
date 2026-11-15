@@ -1,0 +1,30 @@
+{% import "parts.html" as p with context %}
+<table class="hd"><tr>
+	<td class="lg">{% if ctx.company.logo %}<img class="logo" src="{{ ctx.company.logo }}" alt="">{% endif %}</td>
+	<td class="co">
+		<div class="co-name">{{ ctx.company.name }}</div>
+		{% if ctx.cfg.header_text %}<div class="co-meta">{{ ctx.cfg.header_text }}</div>{% endif %}
+		{% if ctx.company.address %}<div class="co-meta">{{ ctx.company.address }}</div>{% endif %}
+		{% if ctx.company.lines or ctx.company.tax_id %}<div class="co-meta">{{ ctx.company.lines|join(' · ') }}{% if ctx.company.tax_id %}{% if ctx.company.lines %} · {% endif %}{{ p.LT({'en': 'Tax ID', 'ar': 'الرقم الضريبي'}) }}: <span class="num">{{ ctx.company.tax_id }}</span>{% endif %}</div>{% endif %}
+	</td>
+</tr></table>
+<div class="rule"></div>
+<table class="ttl"><tr>
+	<td class="tl">
+		<div class="doc-title">{{ p.L(ctx.title) }} <span class="num">{{ ctx.number }}</span>{% if ctx.status %} <span class="st">({{ p.LT(ctx.status) }})</span>{% endif %}</div>
+		<div class="dts">{% for m in ctx.meta %}<div class="mi"><span class="mk">{{ p.L(m.label) }}</span><span class="mv">{{ m.value }}</span></div>{% endfor %}</div>
+	</td>
+	<td class="tr">
+		{% if ctx.party.label %}
+		<div class="party-l">{{ p.L(ctx.party.label) }}</div>
+		<div class="party-n" dir="auto">{{ ctx.party.name }}</div>
+		{% if ctx.party.address %}<div class="party-a">{{ ctx.party.address }}</div>{% endif %}
+		{% if ctx.party.contact %}<div class="party-a">{{ ctx.party.contact }}</div>{% endif %}
+		{% if ctx.party.tax_id %}<div class="party-a">{{ p.LT({'en': 'Tax ID', 'ar': 'الرقم الضريبي'}) }}: <span class="num">{{ ctx.party.tax_id }}</span></div>{% endif %}
+		{% endif %}
+	</td>
+</tr></table>
+{{ p.items() }}
+{{ p.bottom() }}
+{{ p.sig(False) }}
+{{ p.footer() }}
